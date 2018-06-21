@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns='http://www.w3.org/1999/xhtml'>
+	<head>
+		<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+		<title >HTML 5, JavaScript  thingy </title>
+		<link rel="stylesheet" type="text/css" href="CSS/test.css">
+		<script src="Dev/vue.js"></script>
+	</head>
+<body>
+<h1>Prototype 1 for the drag and drop thing I want to make</h1>
+<p>Blah blah I'll make this look good with CSS later</p>
+
+<div class="parent">
+	<div class="dropbox" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)" >
+		<img src="./Assets/face.jpg" align="center" width="300" height="30" draggable="true" ondragstart="drag(event)" dragend="staticDragger(event)" id="dragone_1">
+	</div>
+
+	<div class="dropbox" id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+	<div class="dropbox" id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+	
+	<div class="dropbox" id="div4" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+	
+	<div class="dropbox" id="div5" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+	
+	<div class="dropbox" id="div6" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+	
+</div>
+
+
+<div class="parent">
+	<div class="trash" id="trash" ondrop="trash(event)" ondragover="allowDrop(event)"></div>
+</div>
+
+<div id="textbox">	
+<p id="replacerator">This is the demo text. Replace me!</p>
+<button onclick="replaceMe()">Update</button>
+</div>
+
+<script src="Scripts/test.js"></script>
+</body>
+

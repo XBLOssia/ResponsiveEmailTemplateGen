@@ -1,0 +1,52 @@
+
+#grandparent {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+}
+
+div.parent {
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: rgba(196, 196, 196, 0.75);
+    max-height: 100%;
+    max-width: 50%;
+    margin: auto auto auto 10px;
+}
+
+#textbox{
+    text-align: left;
+    background-color: light-gray;
+    height: 100%;
+    width: 600px;
+    margin: auto;
+}
+
+div.dropbox  {
+    display:flex;
+    flex-direction: column;
+    float: left;
+    min-width: 300px;
+    min-height: 40px;
+    margin: 2px;
+    padding: 10px;
+    border: 3px solid purple;
+}
+div.trash  {
+    float: left;
+    width: 300px;
+    height: 40px;
+    margin: 2px;
+    padding: 10px;
+    border: 3px solid red;
+}
+
+#outputparent {
+    align-content: flex-start;
+    align-items: flex-start;
+    flex-basis: 50%;
+
+}
