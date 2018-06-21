@@ -24,7 +24,6 @@ function drop(ev) {
             
             }
             while (copycheck != null){
-                console.log("AACK");
                 var newId = newId.replace(/(\d)+/g, function(match, number) {
                     return parseInt(number)+1;
                     });
