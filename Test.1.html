@@ -13,8 +13,9 @@
 <p>Blah blah I'll make this look good with CSS later</p>
 <div id="grandparent">
 	<div class="parent">
-		<div class="dropbox" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)" >
-			<img src="./Assets/face.jpg" align="center" width="300" height="30" draggable="true" ondragstart="drag(event)" dragend="staticDragger(event)" class="face" id="dragone_1">
+		<div class="topbox" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)" >
+			<img src="./Assets/face.jpg" align="center" width="300" height="30" draggable="true" ondragstart="drag(event)"  class="face" id="dragface_1" ondragover="dropDeny(event)" ondragleave="dropDenyClean(event)">
+			<img src="./Assets/wildcat.png" align="center" width="300" height="30" draggable="true" ondragstart="drag(event)"  class="wildcat" id="wildcat_1" ondragover="dropDeny(event)" ondragleave="dropDenyClean(event)">
 		</div>
 
 		<div class="dropbox" id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
@@ -22,10 +23,6 @@
 		<div class="dropbox" id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 		
 		<div class="dropbox" id="div4" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-		
-		<div class="dropbox" id="div5" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-		
-		<div class="dropbox" id="div6" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 		
 		<div class="trash" id="trash" ondrop="trash(event)" ondragover="allowDrop(event)"></div>
 	</div>

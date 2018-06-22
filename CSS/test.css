@@ -1,10 +1,17 @@
 
+html {
+    background-color: black;
+    color: white;
+}
+
 #grandparent {
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-content: center;
     align-items: center;
+    background-color: black;
+    color: white;
 }
 
 div.parent {
@@ -25,16 +32,28 @@ div.parent {
     margin: auto;
 }
 
+div.topbox  {
+    display:flex;
+    flex-direction: column;
+    float: left;
+    min-width: 300px;
+    min-height: 100px;
+    margin: 2px;
+    padding: 10px;
+    border: 3px solid orangered;
+}
+
 div.dropbox  {
     display:flex;
     flex-direction: column;
     float: left;
     min-width: 300px;
-    min-height: 40px;
+    min-height: 100px;
     margin: 2px;
     padding: 10px;
     border: 3px solid purple;
 }
+
 div.trash  {
     float: left;
     width: 300px;
