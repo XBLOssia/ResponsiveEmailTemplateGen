@@ -30,9 +30,10 @@ function isBefore(ev1, ev2) {
 //sets var to text based on id field 
 
 function dragOver(ev){
-    console.log(ev.target);
-    console.log(ev.target.parentNode);
-    console.log(_el);
+    //console.log(ev.target);
+    //console.log(ev.target.parentNode);
+    //console.log(_el);
+    _stopdropchecker = 1;
     if (isBefore(_el, ev.target)){
         ev.target.parentNode.insertBefore(_el, ev.target);
     }
@@ -43,6 +44,7 @@ function dragOver(ev){
 
 function dragEnd() {
     _el = null;
+    _stopdropchecker = 0;
 }
 
 
