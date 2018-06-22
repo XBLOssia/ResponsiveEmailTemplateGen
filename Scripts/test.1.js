@@ -1,24 +1,23 @@
-var _stopdropchecker = 0;
-var _el;
+var _stopdropchecker = 0; //default 0; used to prevent images laying on top of eachother
+var _el; //default null; used to swap draggable images
 
-function allowDrop(ev) {
+function allowDrop(ev) { //allows dropping, prevents stacking
     if (_stopdropchecker === 0) {
     ev.preventDefault();
     }
-    //console.log(_stopdropchecker);
 }
 
-function drag(ev) {
+function drag(ev) { //used "ondrag" - allows copying & moving, sets current target for swap
     ev.dataTransfer.effectAllowed = "copyMove";
     _el = ev.target;
-    //console.log(_el);
+    //console.log(_el)
 }
 
-function startDrag(ev){
+function startDrag(ev){ //used "dragstart" - sets data for drag/drop, copying
     ev.dataTransfer.setData("text", ev.target.id);
 }
 
-function isBefore(ev1, ev2) {
+function isBefore(ev1, ev2) { //used for swapping
     if (ev2.parentNode === ev1.parentNode){
         for (var cur = ev1.previousSibling; cur; cur = cur.previousSibling)
             if (cur === ev2){
@@ -27,79 +26,75 @@ function isBefore(ev1, ev2) {
     }
     return false;
 }
-//sets var to text based on id field 
 
-function dragOver(ev){
+function dragOver(ev){ //does the swapping
     //console.log(ev.target);
     //console.log(ev.target.parentNode);
     //console.log(_el);
+    function cutItOut(){
+        _stopdropchecker = 0;
+    }
     _stopdropchecker = 1;
     if (isBefore(_el, ev.target)){
-        ev.target.parentNode.insertBefore(_el, ev.target);
+        if (ev.ctrlKey){
+        }
+        else {
+            ev.target.parentNode.insertBefore(_el, ev.target);
+        }
     }
+
+    /*if (ev.ctrlKey){
+        ev.addEventListener('dragleave', cutItOut, false);
+        var spacer = document.createElement ("p"); 
+        spacer.setAttribute('id', 'temp'));
+        host.appendChild (spacer);
+    }*/ //trying to make fanciness happen. It's not working.
     else{
-        ev.target.parentNode.insertBefore(_el, ev.target.nextSibling);
+        if (ev.ctrlKey){
+        }
+        else {
+            ev.target.parentNode.insertBefore(_el, ev.target.nextSibling);
+        }
     }
 }
 
-function dragEnd() {
+function drop(ev) { //Handles dropping elements, making copies
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text"); //ID assigned to "text"
+    if (ev.ctrlKey) { //make a copy of this sucka when Ctrl is held
+        var newId = data.replace(/(\d)+/g, function(match, number) {     //newId is result of "text" having number replaced w/ var 'number'
+            return parseInt(number)+1;  //increment the appended # by 1
+        });
+          //Use RegEx to increment the ID
+        var copycheck = document.getElementById(newId);
+        //console.log(copycheck);
+        if (copycheck == null){
+        }
+        while (copycheck != null){
+            var newId = newId.replace(/(\d)+/g, function(match, number) {
+                return parseInt(number)+1;
+            });
+            var copycheck = document.getElementById(newId);
+                //Use RegEx to increment the ID
+                //var nodeCopy = document.getElementById(data).cloneNode(true);
+        }
+        var nodeCopy = document.getElementById(data).cloneNode(true); //creates a copy of the node
+        nodeCopy.id = newId;  //Re-ID the node with the new ID
+        ev.target.appendChild(nodeCopy);
+    }
+    else ev.target.appendChild(document.getElementById(data)); //or just move that sucka
+    //_stopdropchecker = 0;
+}
+
+function dragEnd() { // DO NOT MESS WITH THIS UNLESS YOU KNOW WHY YOU'RE DOING IT, ME. - resets global vars when drag is released
     _el = null;
     _stopdropchecker = 0;
 }
 
-
-
-function dropDeny(ev) {
-    _stopdropchecker = 1;
-    
-    //event.dataTransfer.effectAllowed = "none";
-}
-
-function dropDenyClean(ev){
-    _stopdropchecker = 0;
-    //console.log(_stopdropchecker);
-}
-
-function drop(ev) {
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("text"); //ID assigned to "text"
-    if (ev.ctrlKey) {
-      /* existing ID = var "data" (looks like "dragface_[num]")*/
-        var newId = data.replace(/(\d)+/g, function(match, number) {     //newId is result of "text" having number replaced
-            return parseInt(number)+1;  //increment the # by 1
-        });
-          //Use RegEx to increment the ID
-          //console.log(newId); //for debugging
-          var copycheck = document.getElementById(newId);
-          //console.log(copycheck);
-            if (copycheck == null){
-            
-            }
-            while (copycheck != null){
-                var newId = newId.replace(/(\d)+/g, function(match, number) {
-                    return parseInt(number)+1;
-                    });
-                    var copycheck = document.getElementById(newId);
-                //Use RegEx to increment the ID
-                //console.log(newId); //for debugging
-                //var nodeCopy = document.getElementById(data).cloneNode(true);
-                }
-        //}
-        var nodeCopy = document.getElementById(data).cloneNode(true); //creates a copy of the node
-        nodeCopy.id = newId;  //Re-ID the node with the new ID
-        ev.target.appendChild(nodeCopy);
-        //make a copy of this sucka when Ctrl is held
-    } ////
-    else ev.target.appendChild(document.getElementById(data));
-    //_stopdropchecker = 0;
-    //or just move that sucka
-}
-//Handles dropping elements, making copies
-
-function getID(ev){
+/*function getID(ev){
     var oldid = ev.dataTransfer.getData("text");
     
-}
+}*/
 
 function trash(ev) {  //removes items dropped into a trash div
     ev.preventDefault();
@@ -113,7 +108,6 @@ function trash(ev) {  //removes items dropped into a trash div
 function replaceMe(ev){  //the part what lets me update the text area
     document.getElementById("replacerator").innerHTML = htmltext;
 }
-    
 var htmltext = 'This is what' + " I'll " + 'put here for debugging porpoises';    
 
 function findTags(){  //Finds tags, puts 'em in a list
