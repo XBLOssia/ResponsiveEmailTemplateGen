@@ -1,28 +1,61 @@
-var stopdropchecker = 0;
+var _stopdropchecker = 0;
+var _el;
 
 function allowDrop(ev) {
-    if (stopdropchecker === 0) {
+    if (_stopdropchecker === 0) {
     ev.preventDefault();
     }
-    //console.log(stopdropchecker);
+    //console.log(_stopdropchecker);
 }
 
 function drag(ev) {
+    ev.dataTransfer.effectAllowed = "copyMove";
+    _el = ev.target;
+    //console.log(_el);
+}
+
+function startDrag(ev){
     ev.dataTransfer.setData("text", ev.target.id);
 }
+
+function isBefore(ev1, ev2) {
+    if (ev2.parentNode === ev1.parentNode){
+        for (var cur = ev1.previousSibling; cur; cur = cur.previousSibling)
+            if (cur === ev2){
+                return true;
+            }
+    }
+    return false;
+}
 //sets var to text based on id field 
+
+function dragOver(ev){
+    console.log(ev.target);
+    console.log(ev.target.parentNode);
+    console.log(_el);
+    if (isBefore(_el, ev.target)){
+        ev.target.parentNode.insertBefore(_el, ev.target);
+    }
+    else{
+        ev.target.parentNode.insertBefore(_el, ev.target.nextSibling);
+    }
+}
+
+function dragEnd() {
+    _el = null;
+}
 
 
 
 function dropDeny(ev) {
-    stopdropchecker = 1;
+    _stopdropchecker = 1;
     
     //event.dataTransfer.effectAllowed = "none";
 }
 
 function dropDenyClean(ev){
-    stopdropchecker = 0;
-    //console.log(stopdropchecker);
+    _stopdropchecker = 0;
+    //console.log(_stopdropchecker);
 }
 
 function drop(ev) {
@@ -56,7 +89,7 @@ function drop(ev) {
         //make a copy of this sucka when Ctrl is held
     } ////
     else ev.target.appendChild(document.getElementById(data));
-    //stopdropchecker = 0;
+    //_stopdropchecker = 0;
     //or just move that sucka
 }
 //Handles dropping elements, making copies
