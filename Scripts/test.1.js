@@ -45,7 +45,7 @@ function dragOver(ev){ //does the swapping
 
     /*if (ev.ctrlKey){
         ev.addEventListener('dragleave', cutItOut, false);
-        var spacer = document.createElement ("p"); 
+        var spacer = document.createElement ("p");
         spacer.setAttribute('id', 'temp'));
         host.appendChild (spacer);
     }*/ //trying to make fanciness happen. It's not working.
@@ -64,8 +64,7 @@ function drop(ev) { //Handles dropping elements, making copies
     if (ev.ctrlKey) { //make a copy of this sucka when Ctrl is held
         var newId = data.replace(/(\d)+/g, function(match, number) {     //newId is result of "text" having number replaced w/ var 'number'
             return parseInt(number)+1;  //increment the appended # by 1
-        });
-          //Use RegEx to increment the ID
+        });    //Use RegEx to increment the ID
         var copycheck = document.getElementById(newId);
         //console.log(copycheck);
         if (copycheck == null){
@@ -93,7 +92,7 @@ function dragEnd() { // DO NOT MESS WITH THIS UNLESS YOU KNOW WHY YOU'RE DOING I
 
 /*function getID(ev){
     var oldid = ev.dataTransfer.getData("text");
-    
+
 }*/
 
 function trash(ev) {  //removes items dropped into a trash div
@@ -103,16 +102,16 @@ function trash(ev) {  //removes items dropped into a trash div
     //console.log(zap);
     zap.parentNode.removeChild(zap);
     checkEmpty(); //call the function that fixes your divots
-}	
+}
 
 function replaceMe(ev){  //the part what lets me update the text area
     document.getElementById("replacerator").innerHTML = htmltext;
 }
-var htmltext = 'This is what' + " I'll " + 'put here for debugging porpoises';    
+var htmltext = 'This is what' + " I'll " + 'put here for debugging porpoises';
 
 function findTags(){  //Finds tags, puts 'em in a list
     var tags = document.querySelectorAll('img.face, img.wildcat');
-    console.log(tags/*[0].id*/)
+    console.log(tags/*[0].id*/);
     n = (tags.length);
         var kk = "";
         for(i = 0; i <= (n-1); i++){
@@ -157,4 +156,25 @@ function checkEmpty(){ //Checks for presence of all draggables, replaces missing
             facemake.setAttribute('id', 'wildcat_1');
             faceplace.appendChild(facemake);
         }
+}
+
+function makeItHtml(){
+    var gettags = document.querySelectorAll('img');
+    console.log(gettags);
+    n = (gettags.length);
+        var kk ="";
+        for (i=0; i <= (n-1); i++){
+            var list = gettags[i].id;
+            var list1 = list.replace(/_(\d)+/g, "");
+            console.log(list);
+            console.log(list1);
+            if (list1 === "dragface")
+                kk += '<img src=./Assets/face.jpg height="100" width="100">';
+            if (list1 === "wildcat")
+                kk += '<img src=./Assets/wildcat.png height="100" width="100">';
+            /*else
+                console.log(list1)
+                kk += "unhandled exception";*/
+        }
+        document.getElementById("replacerator").innerHTML = kk;
 }
