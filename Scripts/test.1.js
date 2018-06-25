@@ -233,26 +233,24 @@ function makeItHtml(){
         for (i=0; i <= (n-1); i++){
             var list = gettags[i].id;
             var list1 = list.replace(/_(\d)+/g, "");
-            //console.log(list);
-            //console.log(list1);
-            if (list1 === "twocols") {
-                kk += '<img src=./Assets/2cols.png height="100" width="100">';
-            }
-            if (list1 === "leftimg"){
-                kk += '<img src=./Assets/Leftimg.png height="100" width="100">';
-            }
-            if (list1 === "rightimg"){
-                kk += '<img src=./Assets/Rightimg.png height="100" width="100">';
-            }
-            if (list1 === "bgimg"){
-                kk += '<img src=./Assets/BGimg.png height="100" width="100">';
-            }
-            if (list1 === "noimg"){
-                kk += '<img src=./Assets/Noimg.png height="100" width="100">';
-            }
-            /*else
-                console.log(list1)
-                kk += "unhandled exception";*/
+
+            kk = "";
+                if (list1 === "twocols") {
+                    kk += '<img src=./Assets/2cols.png height="100" width="100">';
+                }
+                if (list1 === "leftimg"){
+                    kk += '<img src=./Assets/Leftimg.png height="100" width="100">';
+                }
+                if (list1 === "rightimg"){
+                    kk += '<img src=./Assets/Rightimg.png height="100" width="100">';
+                }
+                if (list1 === "bgimg"){
+                    kk += '<img src=./Assets/BGimg.png height="100" width="100">';
+                }
+                if (list1 === "noimg"){
+                    kk += '<img src=./Assets/Noimg.png height="100" width="100">';
+                }
+
         }
         //var text = document.createTextNode(kk);
         document.getElementById("replacerator").innerHTML = kk;
