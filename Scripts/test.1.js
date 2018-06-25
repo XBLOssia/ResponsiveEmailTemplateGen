@@ -130,8 +130,8 @@ function checkEmpty(){ //Checks for presence of all draggables, replaces missing
             var facemake = document.createElement("img");
             facemake.setAttribute('src', './Assets/face.jpg');
             facemake.setAttribute('align', 'center');
-            facemake.setAttribute('width', '300');
-            facemake.setAttribute('height', '30');
+            facemake.setAttribute('width', '200');
+            facemake.setAttribute('height', '85');
             facemake.setAttribute('draggable', 'true');
             facemake.setAttribute('ondragstart', 'drag(event)');
             facemake.setAttribute('dragend', 'staticDragger(event)');
@@ -147,8 +147,8 @@ function checkEmpty(){ //Checks for presence of all draggables, replaces missing
             var facemake = document.createElement("img");
             facemake.setAttribute('src', './Assets/wildcat.png');
             facemake.setAttribute('align', 'center');
-            facemake.setAttribute('width', '300');
-            facemake.setAttribute('height', '30');
+            facemake.setAttribute('width', '200');
+            facemake.setAttribute('height', '85');
             facemake.setAttribute('draggable', 'true');
             facemake.setAttribute('ondragstart', 'drag(event)');
             facemake.setAttribute('dragend', 'staticDragger(event)');
@@ -196,10 +196,10 @@ function makeItADoc(text, name, type){
             //console.log(list);
             //console.log(list1);
             if (list1 === "dragface") {
-                kk += '<img src=./Assets/face.jpg height="100" width="100">';
+                kk += '<img src=./Assets/face.jpg height="100" width="100"> \r';
             }
             if (list1 === "wildcat"){
-                kk += '<img src=./Assets/wildcat.png height="100" width="100">';
+                kk += '<img src=./Assets/wildcat.png height="100" width="100"> \r';
             }
             /*else
                 console.log(list1)
@@ -212,7 +212,7 @@ function makeItADoc(text, name, type){
         var a = document.createElement("a"),
                 url = URL.createObjectURL(file);
         a.href = url;
-        a.download = 'yourfile.txt';
+        a.download = 'output.txt';
         document.body.appendChild(a);
         a.click();
         setTimeout(function(){
