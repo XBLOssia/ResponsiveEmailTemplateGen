@@ -254,9 +254,9 @@ function makeItHtml(){
                 console.log(list1)
                 kk += "unhandled exception";*/
         }
-        var text = document.createTextNode(kk);
-        document.getElementById("replacerator").innerHTML = "";
-        document.getElementById("replacerator").appendChild(text);
+        //var text = document.createTextNode(kk);
+        document.getElementById("replacerator").innerHTML = kk;
+        //document.getElementById("replacerator").appendChild(text);
         //document.getElementById("replacerator").appendChild(linebreak);
 }
 function makeItADoc(text, name, type){
