@@ -110,7 +110,7 @@ function replaceMe(ev){  //the part what lets me update the text area
 var htmltext = 'This is what' + " I'll " + 'put here for debugging porpoises';
 
 function findTags(){  //Finds tags, puts 'em in a list
-    var tags = document.querySelectorAll('img.face, img.wildcat');
+    var tags = document.getElementById("div2").querySelectorAll('img');
     console.log(tags/*[0].id*/);
     n = (tags.length);
         var kk = "";
@@ -122,44 +122,110 @@ function findTags(){  //Finds tags, puts 'em in a list
 }
 
 function checkEmpty(){ //Checks for presence of all draggables, replaces missing ones
-    var checkempty = document.getElementsByClassName("face"); //Find first draggable, enumerate
+    var checkempty = document.getElementsByClassName("twocols"); //Find first draggable, enumerate
     n = (checkempty.length);
     //console.log(n);
         if(n == 0){  //if it ain't there, make it
             var faceplace = document.getElementById("div1");
             var facemake = document.createElement("img");
-            facemake.setAttribute('src', './Assets/face.jpg');
+            facemake.setAttribute('src', './Assets/2cols.png');
             facemake.setAttribute('align', 'center');
             facemake.setAttribute('width', '200');
             facemake.setAttribute('height', '85');
             facemake.setAttribute('draggable', 'true');
-            facemake.setAttribute('ondragstart', 'drag(event)');
+            facemake.setAttribute('ondragstart', 'startDrag(event)');
+            facemake.setAttribute('ondrag', 'drag(event)');
+            facemake.setAttribute('ondragover', 'dragOver(event)');
+            facemake.setAttribute('ondragleave', 'dragEnd(event)');
             facemake.setAttribute('dragend', 'staticDragger(event)');
-            facemake.setAttribute('class', 'face');
-            facemake.setAttribute('id', 'dragface_1');
+            facemake.setAttribute('class', 'twocols');
+            facemake.setAttribute('id', 'twocols_1');
             faceplace.appendChild(facemake);
         }
-    var checkempty = document.getElementsByClassName("wildcat"); //Second verse, same as the first
+    var checkempty = document.getElementsByClassName("leftimg"); //Second verse, same as the first
     n = (checkempty.length);
     //console.log(n);
         if(n == 0){
             var faceplace = document.getElementById("div1");
             var facemake = document.createElement("img");
-            facemake.setAttribute('src', './Assets/wildcat.png');
+            facemake.setAttribute('src', './Assets/Leftimg.png');
             facemake.setAttribute('align', 'center');
             facemake.setAttribute('width', '200');
             facemake.setAttribute('height', '85');
             facemake.setAttribute('draggable', 'true');
-            facemake.setAttribute('ondragstart', 'drag(event)');
+            facemake.setAttribute('ondragstart', 'startDrag(event)');
+            facemake.setAttribute('ondrag', 'drag(event)');
+            facemake.setAttribute('ondragover', 'dragOver(event)');
+            facemake.setAttribute('ondragleave', 'dragEnd(event)');
             facemake.setAttribute('dragend', 'staticDragger(event)');
-            facemake.setAttribute('class', 'wildcat');
-            facemake.setAttribute('id', 'wildcat_1');
+            facemake.setAttribute('class', 'leftimg');
+            facemake.setAttribute('id', 'leftimg_1');
+            faceplace.appendChild(facemake);
+        }
+    var checkempty = document.getElementsByClassName("rightimg"); //Second verse, same as the first
+    n = (checkempty.length);
+    //console.log(n);
+        if(n == 0){
+            var faceplace = document.getElementById("div1");
+            var facemake = document.createElement("img");
+            facemake.setAttribute('src', './Assets/Rightimg.png');
+            facemake.setAttribute('align', 'center');
+            facemake.setAttribute('width', '200');
+            facemake.setAttribute('height', '85');
+            facemake.setAttribute('draggable', 'true');
+            facemake.setAttribute('ondragstart', 'startDrag(event)');
+            facemake.setAttribute('ondrag', 'drag(event)');
+            facemake.setAttribute('ondragover', 'dragOver(event)');
+            facemake.setAttribute('ondragleave', 'dragEnd(event)');
+            facemake.setAttribute('dragend', 'staticDragger(event)');
+            facemake.setAttribute('class', 'rightimg');
+            facemake.setAttribute('id', 'rightimg_1');
+            faceplace.appendChild(facemake);
+        }
+    var checkempty = document.getElementsByClassName("bgimg"); //Second verse, same as the first
+    n = (checkempty.length);
+    //console.log(n);
+        if(n == 0){
+            var faceplace = document.getElementById("div1");
+            var facemake = document.createElement("img");
+            facemake.setAttribute('src', './Assets/BGimg.png');
+            facemake.setAttribute('align', 'center');
+            facemake.setAttribute('width', '200');
+            facemake.setAttribute('height', '85');
+            facemake.setAttribute('draggable', 'true');
+            facemake.setAttribute('ondragstart', 'startDrag(event)');
+            facemake.setAttribute('ondrag', 'drag(event)');
+            facemake.setAttribute('ondragover', 'dragOver(event)');
+            facemake.setAttribute('ondragleave', 'dragEnd(event)');
+            facemake.setAttribute('dragend', 'staticDragger(event)');
+            facemake.setAttribute('class', 'bgimg');
+            facemake.setAttribute('id', 'bgimg_1');
+            faceplace.appendChild(facemake);
+        }
+    var checkempty = document.getElementsByClassName("noimg"); //Second verse, same as the first
+    n = (checkempty.length);
+    //console.log(n);
+        if(n == 0){
+            var faceplace = document.getElementById("div1");
+            var facemake = document.createElement("img");
+            facemake.setAttribute('src', './Assets/Noimg.png');
+            facemake.setAttribute('align', 'center');
+            facemake.setAttribute('width', '200');
+            facemake.setAttribute('height', '85');
+            facemake.setAttribute('draggable', 'true');
+            facemake.setAttribute('ondragstart', 'startDrag(event)');
+            facemake.setAttribute('ondrag', 'drag(event)');
+            facemake.setAttribute('ondragover', 'dragOver(event)');
+            facemake.setAttribute('ondragleave', 'dragEnd(event)');
+            facemake.setAttribute('dragend', 'staticDragger(event)');
+            facemake.setAttribute('class', 'noimg');
+            facemake.setAttribute('id', 'noimg_1');
             faceplace.appendChild(facemake);
         }
 }
 
 function makeItHtml(){
-    var gettags = document.querySelectorAll('img');
+    var gettags = document.getElementById('div2').querySelectorAll('img');
     var linebreak = document.createElement("p");
     //console.log(gettags);
     n = (gettags.length);
@@ -169,11 +235,20 @@ function makeItHtml(){
             var list1 = list.replace(/_(\d)+/g, "");
             //console.log(list);
             //console.log(list1);
-            if (list1 === "dragface") {
-                kk += '<img src=./Assets/face.jpg height="100" width="100">';
+            if (list1 === "twocols") {
+                kk += '<img src=./Assets/2cols.png height="100" width="100">';
             }
-            if (list1 === "wildcat"){
-                kk += '<img src=./Assets/wildcat.png height="100" width="100">';
+            if (list1 === "leftimg"){
+                kk += '<img src=./Assets/Leftimg.png height="100" width="100">';
+            }
+            if (list1 === "rightimg"){
+                kk += '<img src=./Assets/Rightimg.png height="100" width="100">';
+            }
+            if (list1 === "bgimg"){
+                kk += '<img src=./Assets/BGimg.png height="100" width="100">';
+            }
+            if (list1 === "noimg"){
+                kk += '<img src=./Assets/Noimg.png height="100" width="100">';
             }
             /*else
                 console.log(list1)
@@ -185,7 +260,7 @@ function makeItHtml(){
         //document.getElementById("replacerator").appendChild(linebreak);
 }
 function makeItADoc(text, name, type){
-    var gettags = document.querySelectorAll('img');
+    var gettags = document.getElementById('div2').querySelectorAll('img');
     var linebreak = document.createElement("p");
     //console.log(gettags);
     n = (gettags.length);
@@ -195,15 +270,21 @@ function makeItADoc(text, name, type){
             var list1 = list.replace(/_(\d)+/g, "");
             //console.log(list);
             //console.log(list1);
-            if (list1 === "dragface") {
-                kk += '<img src=./Assets/face.jpg height="100" width="100"> \r';
+            if (list1 === "twocols") {
+                kk += '<img src=./Assets/2cols.png height="100" width="100"> \r';
             }
-            if (list1 === "wildcat"){
-                kk += '<img src=./Assets/wildcat.png height="100" width="100"> \r';
+            if (list1 === "leftimg"){
+                kk += '<img src=./Assets/Leftimg.png height="100" width="100"> \r';
             }
-            /*else
-                console.log(list1)
-                kk += "unhandled exception";*/
+            if (list1 === "rightimg"){
+                kk += '<img src=./Assets/Rightimg.png height="100" width="100"> \r';
+            }
+            if (list1 === "bgimg"){
+                kk += '<img src=./Assets/BGimg.png height="100" width="100"> \r';
+            }
+            if (list1 === "noimg"){
+                kk += '<img src=./Assets/Noimg.png height="100" width="100"> \r';
+            } 
         }
         var text = document.createTextNode(kk);
 
