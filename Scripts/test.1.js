@@ -160,21 +160,63 @@ function checkEmpty(){ //Checks for presence of all draggables, replaces missing
 
 function makeItHtml(){
     var gettags = document.querySelectorAll('img');
-    console.log(gettags);
+    var linebreak = document.createElement("p");
+    //console.log(gettags);
     n = (gettags.length);
         var kk ="";
         for (i=0; i <= (n-1); i++){
             var list = gettags[i].id;
             var list1 = list.replace(/_(\d)+/g, "");
-            console.log(list);
-            console.log(list1);
-            if (list1 === "dragface")
+            //console.log(list);
+            //console.log(list1);
+            if (list1 === "dragface") {
                 kk += '<img src=./Assets/face.jpg height="100" width="100">';
-            if (list1 === "wildcat")
+            }
+            if (list1 === "wildcat"){
                 kk += '<img src=./Assets/wildcat.png height="100" width="100">';
+            }
             /*else
                 console.log(list1)
                 kk += "unhandled exception";*/
         }
-        document.getElementById("replacerator").innerHTML = kk;
+        var text = document.createTextNode(kk);
+        document.getElementById("replacerator").innerHTML = "";
+        document.getElementById("replacerator").appendChild(text);
+        //document.getElementById("replacerator").appendChild(linebreak);
+}
+function makeItADoc(text, name, type){
+    var gettags = document.querySelectorAll('img');
+    var linebreak = document.createElement("p");
+    //console.log(gettags);
+    n = (gettags.length);
+        var kk ="";
+        for (i=0; i <= (n-1); i++){
+            var list = gettags[i].id;
+            var list1 = list.replace(/_(\d)+/g, "");
+            //console.log(list);
+            //console.log(list1);
+            if (list1 === "dragface") {
+                kk += '<img src=./Assets/face.jpg height="100" width="100">';
+            }
+            if (list1 === "wildcat"){
+                kk += '<img src=./Assets/wildcat.png height="100" width="100">';
+            }
+            /*else
+                console.log(list1)
+                kk += "unhandled exception";*/
+        }
+        var text = document.createTextNode(kk);
+
+
+        var file = new Blob([kk], {type: type});
+        var a = document.createElement("a"),
+                url = URL.createObjectURL(file);
+        a.href = url;
+        a.download = 'yourfile.txt';
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function(){
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }, 0);
 }
