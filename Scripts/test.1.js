@@ -293,7 +293,7 @@ function makeItHtml(){
                     kk += '<img src="./Assets/BGimg.png" height="100" width="100">';
                 }
                 if (list1 === "noimg"){
-                    kk += '<img src="./Assets/Noimg.png" height="100" width="100">';
+                    kk += '<img src="./Assets/Noimg.png" height="100" width="100"><form id="noimg"><input type="text" name="noimg1" width="800" value="Headline" onKeyPress="return noEnter()"><input type="text" name="noimg2" width="800" height="800" value="Body text" onKeyPress="return noEnter()"><input type="text" name="noimg3" width="800" value="Link URL" onKeyPress="return noEnter()"><input type="text" name="noimg4" width="800" value="Link Text" onKeyPress="return noEnter()"></form>';
                 }
                 if (list1 === "closing"){
                     kk += '<img src="./Assets/Closing.png" height="100" width="100">';
@@ -314,6 +314,10 @@ function makeItADoc(text, name, type){
     var header2 = '" width="680" height="" alt="alt_text" border="0" style="width: 100%; max-width: 680px; height: auto; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 15px; color: #555555; margin: auto;" class="fluid g-img">\r</td>\r</tr>\r<!-- Hero Image, Flush : END -->';
 //look upon my works ye mighty, and despair!
     var bigimagelink = "";
+    var noimgheadline = "";
+    var noimgbodytext = "";
+    var noimglink = "";
+    var noimglinktext = "";
         var kk = "";
         for (i=0; i <= (n-1); i++){
             var list = gettags[i].id;
@@ -328,7 +332,6 @@ function makeItADoc(text, name, type){
                 kk = header1;
                 kk += bigimagelink;
                 kk += header2;
-                kk += '<img src="./Assets/Heading.png" height="100" width="100"> \r';
             }
             if (list1 === "twocols"){
                 var twocolumnhtml = "";
@@ -347,8 +350,19 @@ function makeItADoc(text, name, type){
                 kk += '<img src="./Assets/BGimg.png" height="100" width="100"> \r';
             }
             if (list1 === "noimg"){
-                var noimghtml = "";
-                kk += '<img src="./Assets/Noimg.png" height="100" width="100"> \r';
+                var noimghtml1 = '<!-- 1 Column Text + Button : BEGIN -->\r<tr>\r<td style="background-color: #ffffff;">\r<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">\r<tr>\r<td style="padding: 20px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555; text-align: center;">\r<h1 style="margin: 0 0 10px; font-size: 25px; line-height: 30px; color: #333333; font-weight: normal;">';
+                var noimghtml2 = '</h1>\r<p style="margin: 0 0 10px;">';
+                var noimghtml3 = '</p>\r</td>\r</tr>\r<tr>\r<td style="padding: 0 20px 20px;">\r<!-- Button : BEGIN -->\r<table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin: auto;">\r<tr>\r<td class="button-td button-td-primary" style="border-radius: 4px; background: #ff0033;">\r<a class="button-a button-a-primary" href="';
+                var noimghtml4 = '" style="background: #ff0033; border: 1px solid #ff0033; font-family: sans-serif; font-size: 15px; line-height: 15px; text-decoration: none; padding: 13px 17px; color: #ffffff; display: block; border-radius: 4px;">';
+                var noimghtml5 = '</a>\r</td>\r</tr>\r</table>\r<!-- Button : END -->\r</td>\r</tr>\r</table>\r</td>\r</tr> \r<!-- 1 Column Text + Button : END -->\r';
+
+                var x = document.getElementById('noimg');
+                noimgheadline = x.elements[0].value;
+                noimgbodytext = x.elements[1].value;
+                noimglink = x.elements[2].value;
+                noimglink.replace(/,/g, '.');
+                noimglinktext = x.elements[3].value;
+                kk += noimghtml1 + noimgheadline + noimghtml2 + noimgbodytext + noimghtml3 + noimglink + noimghtml4 + noimglinktext + noimghtml5;
             } 
             if (list1 ==="closing"){
                 var closinghtml = "";
