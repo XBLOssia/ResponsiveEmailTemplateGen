@@ -127,7 +127,7 @@ function findTags(){  //Finds tags, puts 'em in a list
 }
 
 function checkEmpty(){ //Checks for presence of all draggables, replaces missing ones
-    var checkempty = document.getElementsByClassName("twocols"); //Find first draggable, enumerate
+    var checkempty = document.getElementsByClassName("heading"); //Find first draggable, enumerate
     n = (checkempty.length);
     //console.log(n);
         if(n == 0){
@@ -147,6 +147,8 @@ function checkEmpty(){ //Checks for presence of all draggables, replaces missing
             facemake.setAttribute('id', 'heading');
             faceplace.appendChild(facemake);
         }
+    var checkempty = document.getElementsByClassName("twocols"); //Find first draggable, enumerate
+    n = (checkempty.length);
         if(n == 0){  //if it ain't there, make it
             var faceplace = document.getElementById("div1");
             var facemake = document.createElement("img");
@@ -244,6 +246,26 @@ function checkEmpty(){ //Checks for presence of all draggables, replaces missing
             facemake.setAttribute('id', 'noimg_1');
             faceplace.appendChild(facemake);
         }
+        var checkempty = document.getElementsByClassName("closing"); //Second verse, same as the first
+        n = (checkempty.length);
+        //console.log(n);
+            if(n == 0){
+                var faceplace = document.getElementById("div1");
+                var facemake = document.createElement("img");
+                facemake.setAttribute('src', './Assets/Closing.png');
+                facemake.setAttribute('align', 'center');
+                facemake.setAttribute('width', '200');
+                facemake.setAttribute('height', '85');
+                facemake.setAttribute('draggable', 'true');
+                facemake.setAttribute('ondragstart', 'startDrag(event)');
+                facemake.setAttribute('ondrag', 'drag(event)');
+                facemake.setAttribute('ondragover', 'dragOver(event)');
+                facemake.setAttribute('ondragleave', 'dragEnd(event)');
+                facemake.setAttribute('dragend', 'staticDragger(event)');
+                facemake.setAttribute('class', 'closing');
+                facemake.setAttribute('id', 'closing_1');
+                faceplace.appendChild(facemake);
+            }
 }
 
 function makeItHtml(){
@@ -255,7 +277,6 @@ function makeItHtml(){
         for (i=0; i <= (n-1); i++){
             var list = gettags[i].id;
             var list1 = list.replace(/_(\d)+/g, "");
-            
                 if (list1 === "heading") {
                     kk += '<img src="./Assets/Heading.png" height="100" width="100"><form id="whatamidoing"><input type="text" name="whatamidoing" width="800" value="insert text here" onKeyPress="return noEnter()"></form>'
                 }
@@ -273,6 +294,9 @@ function makeItHtml(){
                 }
                 if (list1 === "noimg"){
                     kk += '<img src="./Assets/Noimg.png" height="100" width="100">';
+                }
+                if (list1 === "closing"){
+                    kk += '<img src="./Assets/Closing.png" height="100" width="100">';
                 }
                 console.log(kk);
         }
@@ -304,23 +328,32 @@ function makeItADoc(text, name, type){
                 kk = header1;
                 kk += bigimagelink;
                 kk += header2;
-                kk += '<img src=./Assets/Heading.png height="100" width="100"> \r';
+                kk += '<img src="./Assets/Heading.png" height="100" width="100"> \r';
             }
             if (list1 === "twocols"){
-                kk += '<img src=./Assets/2cols.png height="100" width="100"> \r';
+                var twocolumnhtml = "";
+                kk += '<img src="./Assets/2cols.png" height="100" width="100"> \r';
             }
             if (list1 === "leftimg"){
-                kk += '<img src=./Assets/Leftimg.png height="100" width="100"> \r';
+                var leftimghtml = "";
+                kk += '<img src="./Assets/Leftimg.png" height="100" width="100"> \r';
             }
             if (list1 === "rightimg"){
-                kk += '<img src=./Assets/Rightimg.png height="100" width="100"> \r';
+                var rightimghtml = "";
+                kk += '<img src="./Assets/Rightimg.png" height="100" width="100"> \r';
             }
             if (list1 === "bgimg"){
-                kk += '<img src=./Assets/BGimg.png height="100" width="100"> \r';
+                var bgimghtml = "";
+                kk += '<img src="./Assets/BGimg.png" height="100" width="100"> \r';
             }
             if (list1 === "noimg"){
-                kk += '<img src=./Assets/Noimg.png height="100" width="100"> \r';
+                var noimghtml = "";
+                kk += '<img src="./Assets/Noimg.png" height="100" width="100"> \r';
             } 
+            if (list1 ==="closing"){
+                var closinghtml = "";
+                kk += '<img src="./Assets/Closing.png" height="100" width="100">'
+            }
         }
         //var text = document.createTextNode(kk);
 

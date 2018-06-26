@@ -16,12 +16,18 @@ html {
 
 div.parent {
     display:flex;
-    flex-direction: column;
+    flex-direction: row;
     text-align: center;
     background-color: rgba(196, 196, 196, 0.75);
     max-height: 100%;
     max-width: 50%;
     margin: auto auto auto 10px;
+}
+
+div.cousins {
+    display: flex;
+    flex-direction: column;
+    
 }
 
 #textbox{
