@@ -130,6 +130,23 @@ function checkEmpty(){ //Checks for presence of all draggables, replaces missing
     var checkempty = document.getElementsByClassName("twocols"); //Find first draggable, enumerate
     n = (checkempty.length);
     //console.log(n);
+        if(n == 0){
+            var faceplace = document.getElementById("div1");
+            var facemake = document.createElement("img");
+            facemake.setAttribute('src', './Assets/Heading.png');
+            facemake.setAttribute('align', 'center');
+            facemake.setAttribute('width', '200');
+            facemake.setAttribute('height', '85');
+            facemake.setAttribute('draggable', 'true');
+            facemake.setAttribute('ondragstart', 'startDrag(event)');
+            facemake.setAttribute('ondrag', 'drag(event)');
+            facemake.setAttribute('ondragover', 'dragOver(event)');
+            facemake.setAttribute('ondragleave', 'dragEnd(event)');
+            facemake.setAttribute('dragend', 'staticDragger(event)');
+            facemake.setAttribute('class', 'heading');
+            facemake.setAttribute('id', 'heading');
+            faceplace.appendChild(facemake);
+        }
         if(n == 0){  //if it ain't there, make it
             var faceplace = document.getElementById("div1");
             var facemake = document.createElement("img");
@@ -238,9 +255,12 @@ function makeItHtml(){
         for (i=0; i <= (n-1); i++){
             var list = gettags[i].id;
             var list1 = list.replace(/_(\d)+/g, "");
-
+            
+                if (list1 === "heading") {
+                    kk += '<img src="./Assets/Heading.png" height="100" width="100"><form id="whatamidoing"><input type="text" name="whatamidoing" width="800" value="insert text here" onKeyPress="return noEnter()"></form>'
+                }
                 if (list1 === "twocols") {
-                    kk += '<img src="./Assets/2cols.png" height="100" width="100"><form id="whatamidoing"><input type="text" name="whatamidoing" width="800" value="insert text here"></form>';
+                    kk += '<img src="./Assets/2cols.png" height="100" width="100">';
                 }
                 if (list1 === "leftimg"){
                     kk += '<img src="./Assets/Leftimg.png" height="100" width="100">';
@@ -276,7 +296,7 @@ function makeItADoc(text, name, type){
             var list1 = list.replace(/_(\d)+/g, "");
             //console.log(list);
             //console.log(list1);
-            if (list1 === "twocols") {
+            if (list1 === "heading") {
                 var x = document.getElementById('whatamidoing');
                 bigimagelink = x.elements[0].value;
                 bigimagelink.replace(/,/g, '.');
@@ -284,6 +304,9 @@ function makeItADoc(text, name, type){
                 kk = header1;
                 kk += bigimagelink;
                 kk += header2;
+                kk += '<img src=./Assets/Heading.png height="100" width="100"> \r';
+            }
+            if (list1 === "twocols"){
                 kk += '<img src=./Assets/2cols.png height="100" width="100"> \r';
             }
             if (list1 === "leftimg"){
@@ -313,4 +336,5 @@ function makeItADoc(text, name, type){
             window.URL.revokeObjectURL(url);
         }, 0);
 }
+
 

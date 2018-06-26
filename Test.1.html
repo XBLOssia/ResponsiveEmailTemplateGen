@@ -14,6 +14,7 @@
 <div id="grandparent">
 	<div class="parent">
 		<div class="topbox" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)" >
+			<img src="./Assets/Heading.png" align="center" width="200" height="85" draggable="true" ondragstart="startDrag(event)" ondrag="drag(event)"  class="heading" id="heading_1" ondragover="dragOver(event)" ondragleave="dragEnd(event)">
 			<img src="./Assets/2cols.png" align="center" width="200" height="85" draggable="true" ondragstart="startDrag(event)" ondrag="drag(event)"  class="twocols" id="twocols_1" ondragover="dragOver(event)" ondragleave="dragEnd(event)">
 			<img src="./Assets/Leftimg.png" align="center" width="200" height="85" draggable="true" ondragstart="startDrag(event)" ondrag="drag(event)"  class="leftimg" id="leftimg_1" ondragover="dragOver(event)" ondragleave="dragEnd(event)">
 			<img src="./Assets/Rightimg.png" align="center" width="200" height="85" draggable="true" ondragstart="startDrag(event)" ondrag="drag(event)"  class="rightimg" id="rightimg_1" ondragover="dragOver(event)" ondragleave="dragEnd(event)">
@@ -36,4 +37,9 @@
 		</div>
 	</div>
 </div>
+<script>
+	function noEnter(){
+    return !(window.event && window.event.keyCode == 13);
+	};
+</script>
 </body>
