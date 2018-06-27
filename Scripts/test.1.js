@@ -249,23 +249,23 @@ function checkEmpty(){ //Checks for presence of all draggables, replaces missing
         var checkempty = document.getElementsByClassName("closing"); //Second verse, same as the first
         n = (checkempty.length);
         //console.log(n);
-            if(n == 0){
-                var faceplace = document.getElementById("div1");
-                var facemake = document.createElement("img");
-                facemake.setAttribute('src', './Assets/Closing.png');
-                facemake.setAttribute('align', 'center');
-                facemake.setAttribute('width', '200');
-                facemake.setAttribute('height', '85');
-                facemake.setAttribute('draggable', 'true');
-                facemake.setAttribute('ondragstart', 'startDrag(event)');
-                facemake.setAttribute('ondrag', 'drag(event)');
-                facemake.setAttribute('ondragover', 'dragOver(event)');
-                facemake.setAttribute('ondragleave', 'dragEnd(event)');
-                facemake.setAttribute('dragend', 'staticDragger(event)');
-                facemake.setAttribute('class', 'closing');
-                facemake.setAttribute('id', 'closing_1');
-                faceplace.appendChild(facemake);
-            }
+        if(n == 0){
+            var faceplace = document.getElementById("div1");
+            var facemake = document.createElement("img");
+            facemake.setAttribute('src', './Assets/Closing.png');
+            facemake.setAttribute('align', 'center');
+            facemake.setAttribute('width', '200');
+            facemake.setAttribute('height', '85');
+            facemake.setAttribute('draggable', 'true');
+            facemake.setAttribute('ondragstart', 'startDrag(event)');
+            facemake.setAttribute('ondrag', 'drag(event)');
+            facemake.setAttribute('ondragover', 'dragOver(event)');
+            facemake.setAttribute('ondragleave', 'dragEnd(event)');
+            facemake.setAttribute('dragend', 'staticDragger(event)');
+            facemake.setAttribute('class', 'closing');
+            facemake.setAttribute('id', 'closing_1');
+            faceplace.appendChild(facemake);
+        }
 }
 
 function makeItHtml(){
@@ -296,7 +296,7 @@ function makeItHtml(){
                     kk += '<img src="./Assets/Noimg.png" height="100" width="100"><form id="noimg"><input type="text" name="noimg1" width="800" value="Headline" onKeyPress="return noEnter()"><input type="text" name="noimg2" width="800" height="800" value="Body text" onKeyPress="return noEnter()"><input type="text" name="noimg3" width="800" value="Link URL" onKeyPress="return noEnter()"><input type="text" name="noimg4" width="800" value="Link Text" onKeyPress="return noEnter()"></form><br />';
                 }
                 if (list1 === "closing"){
-                    kk += '<img src="./Assets/Closing.png" height="100" width="100"><form id="closing"><input type="text" name="closing1" width="800" value="Closing text 1" onKeyPress="return noEnter()"><input type="text" name="closing2" width="800" value="Closing text 2" onKeyPress="return noEnter()"><br />';
+                    kk += '<img src="./Assets/Closing.png" height="100" width="100"><form id="closing"><input type="text" name="closing1" width="800" value="Closing text 1" onKeyPress="return noEnter()"><input type="text" name="closing2" width="800" value="Closing text" onKeyPress="return noEnter()"><br />';
                 }
                 //console.log(kk);
         }
