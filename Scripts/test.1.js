@@ -278,27 +278,27 @@ function makeItHtml(){
             var list = gettags[i].id;
             var list1 = list.replace(/_(\d)+/g, "");
                 if (list1 === "heading") {
-                    kk += '<img src="./Assets/Heading.png" height="100" width="100"><form id="whatamidoing"><input type="text" name="whatamidoing" width="800" value="insert text here" onKeyPress="return noEnter()"></form>'
+                    kk += '<img src="./Assets/Heading.png" height="100" width="100"><form id="whatamidoing"><input type="text" name="whatamidoing" width="800" value="insert text here" onKeyPress="return noEnter()"></form><br />'
                 }
                 if (list1 === "twocols") {
-                    kk += '<img src="./Assets/2cols.png" height="100" width="100">';
+                    kk += '<img src="./Assets/2cols.png" height="100" width="100"><br />';
                 }
                 if (list1 === "leftimg"){
-                    kk += '<img src="./Assets/Leftimg.png" height="100" width="100">';
+                    kk += '<img src="./Assets/Leftimg.png" height="100" width="100"><br />';
                 }
                 if (list1 === "rightimg"){
-                    kk += '<img src="./Assets/Rightimg.png" height="100" width="100">';
+                    kk += '<img src="./Assets/Rightimg.png" height="100" width="100"><br />';
                 }
                 if (list1 === "bgimg"){
-                    kk += '<img src="./Assets/BGimg.png" height="100" width="100"><form id="bgimg"><input type="text" name="bgimgurl" width="800" value="BG img URL" onKeyPress="return noEnter()"><input type="text" name="bgimgtext" width="800" value="Text goes here" onKeyPress="return noEnter()">';
+                    kk += '<img src="./Assets/BGimg.png" height="100" width="100"><form id="bgimg"><input type="text" name="bgimgurl" width="800" value="BG img URL" onKeyPress="return noEnter()"><input type="text" name="bgimgtext" width="800" value="Text goes here" onKeyPress="return noEnter()"><br />';
                 }
                 if (list1 === "noimg"){
-                    kk += '<img src="./Assets/Noimg.png" height="100" width="100"><form id="noimg"><input type="text" name="noimg1" width="800" value="Headline" onKeyPress="return noEnter()"><input type="text" name="noimg2" width="800" height="800" value="Body text" onKeyPress="return noEnter()"><input type="text" name="noimg3" width="800" value="Link URL" onKeyPress="return noEnter()"><input type="text" name="noimg4" width="800" value="Link Text" onKeyPress="return noEnter()"></form>';
+                    kk += '<img src="./Assets/Noimg.png" height="100" width="100"><form id="noimg"><input type="text" name="noimg1" width="800" value="Headline" onKeyPress="return noEnter()"><input type="text" name="noimg2" width="800" height="800" value="Body text" onKeyPress="return noEnter()"><input type="text" name="noimg3" width="800" value="Link URL" onKeyPress="return noEnter()"><input type="text" name="noimg4" width="800" value="Link Text" onKeyPress="return noEnter()"></form><br />';
                 }
                 if (list1 === "closing"){
                     kk += '<img src="./Assets/Closing.png" height="100" width="100">';
                 }
-                console.log(kk);
+                //console.log(kk);
         }
         //var text = document.createTextNode(kk);
         document.getElementById("replacerator").innerHTML = kk;
@@ -327,7 +327,7 @@ function makeItADoc(text, name, type){
                 var x = document.getElementById('whatamidoing');
                 var bigimagelink = x.elements[0].value;
                 bigimagelink.replace(/,/g, '.');
-                console.log(bigimagelink);
+                //console.log(bigimagelink);
                 kk = header1 + bigimagelink + header2;
             }
             if (list1 === "twocols"){
@@ -350,6 +350,7 @@ function makeItADoc(text, name, type){
 
                 var x = document.getElementById('bgimg');
                 bgimgurl = x.elements[0].value;
+                bgimgurl.replace(/,/g, '.');
                 bgimgtxt = x.elements[1].value;
                 kk += bgimghtml1 + bgimgurl + bgimghtml2 + bgimgurl + bgimghtml3 + bgimgtxt + bgimghtml4;
             }
