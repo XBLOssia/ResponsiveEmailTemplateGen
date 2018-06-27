@@ -296,7 +296,7 @@ function makeItHtml(){
                     kk += '<img src="./Assets/Noimg.png" height="100" width="100"><form id="noimg"><input type="text" name="noimg1" width="800" value="Headline" onKeyPress="return noEnter()"><input type="text" name="noimg2" width="800" height="800" value="Body text" onKeyPress="return noEnter()"><input type="text" name="noimg3" width="800" value="Link URL" onKeyPress="return noEnter()"><input type="text" name="noimg4" width="800" value="Link Text" onKeyPress="return noEnter()"></form><br />';
                 }
                 if (list1 === "closing"){
-                    kk += '<img src="./Assets/Closing.png" height="100" width="100">';
+                    kk += '<img src="./Assets/Closing.png" height="100" width="100"><form id="closing"><input type="text" name="closing1" width="800" value="Closing text 1" onKeyPress="return noEnter()"><input type="text" name="closing2" width="800" value="Closing text 2" onKeyPress="return noEnter()"><br />';
                 }
                 //console.log(kk);
         }
@@ -310,10 +310,7 @@ function makeItADoc(text, name, type){
     var linebreak = document.createElement("p");
     //console.log(gettags);
     n = (gettags.length);
-    var noimgheadline = "";
-    var noimgbodytext = "";
-    var noimglink = "";
-    var noimglinktext = "";
+    
         var kk = "";
         for (i=0; i <= (n-1); i++){
             var list = gettags[i].id;
@@ -349,9 +346,9 @@ function makeItADoc(text, name, type){
                 var bgimghtml4 = '</p>\r</td>\r</tr>\r</table>\r<!--[if mso]>\r</td>\r</tr>\r</table>\r<![endif]-->\r</div>\r<!--[if gte mso 9]>\r</v:fill>\r</v:rect>\r</v:image>\r<![endif]-->\r</td>\r</tr>\r<!-- Background Image with Text : END -->\r';
 
                 var x = document.getElementById('bgimg');
-                bgimgurl = x.elements[0].value;
+                var bgimgurl = x.elements[0].value;
                 bgimgurl.replace(/,/g, '.');
-                bgimgtxt = x.elements[1].value;
+                var bgimgtxt = x.elements[1].value;
                 kk += bgimghtml1 + bgimgurl + bgimghtml2 + bgimgurl + bgimghtml3 + bgimgtxt + bgimghtml4;
             }
             if (list1 === "noimg"){
@@ -362,16 +359,23 @@ function makeItADoc(text, name, type){
                 var noimghtml5 = '</a>\r</td>\r</tr>\r</table>\r<!-- Button : END -->\r</td>\r</tr>\r</table>\r</td>\r</tr> \r<!-- 1 Column Text + Button : END -->\r';
 
                 var x = document.getElementById('noimg');
-                noimgheadline = x.elements[0].value;
-                noimgbodytext = x.elements[1].value;
-                noimglink = x.elements[2].value;
+                var noimgheadline = x.elements[0].value;
+                var noimgbodytext = x.elements[1].value;
+                var noimglink = x.elements[2].value;
                 noimglink.replace(/,/g, '.');
-                noimglinktext = x.elements[3].value;
+                var noimglinktext = x.elements[3].value;
                 kk += noimghtml1 + noimgheadline + noimghtml2 + noimgbodytext + noimghtml3 + noimglink + noimghtml4 + noimglinktext + noimghtml5;
             } 
             if (list1 ==="closing"){
-                var closinghtml = "";
-                kk += '<img src="./Assets/Closing.png" height="100" width="100">'
+                var closinghtml1 = '<!-- Clear Spacer : BEGIN -->\r<tr>\r<td aria-hidden="true" height="40" style="font-size: 0px; line-height: 0px;">\r&nbsp;\r</td>\r</tr>\r<!-- Clear Spacer : END -->\r<!-- 1 Column Text : BEGIN -->\r<tr>\r<td style="background-color: #ffffff;">\r<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">\r<tr>\r<td style="padding: 20px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;">\r<p style="margin: 0 0 10px 0;">';
+                var closinghtml2 = '</p>\r</td>\r</tr>\r</table>\r</td>\r</tr>\r<!-- 1 Column Text : END -->\r<!-- Clear Spacer : BEGIN -->\r<tr>\r<td aria-hidden="true" height="40" style="font-size: 0px; line-height: 0px;">\r&nbsp;\r</td>\r</tr>\r<!-- Clear Spacer : END -->\r</table>\r<!--[if mso]>\r</td>\r</tr>\r</table>\r<![endif]-->\r</div>\r<!-- Full Bleed Background Section : BEGIN -->\r<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #CB00FF;">\r<tr>\r<td valign="top">\r<div style="max-width: 680px; margin: 0 auto;" class="email-container">\r<!--[if mso]>\r<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="680" align="center">\r<tr>\r<td>\r<![endif]-->\r<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">\r<tr>\r<td style="padding: 0px; text-align: center;\rfont-family: sans-serif; font-size: 15px;\rline-height: 140%; color: #ffffff;">\r<p>\r';
+                var closinghtml3 = '</p>\r</td>\r</tr>\r<tr>\r<td style="padding: 20px; text-align: left; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #ffffff;">\r<img alt="Signature" style="width: 100%;\rmax-width: 600px; height: auto;\rbackground: #dddddd; font-family:\rsans-serif; font-size: 15px;\rline-height: 140%; color: #555555;\rmargin: auto;" class="g-img" moz-do-not-send="true" align="middle" height="" width="600" border="0" src="http://u.cubeupload.com/XBLOssia/NewSignatureThunderb.png">\r</td>\r</tr>\r</table>\r<!--[if mso]>\r</td>\r</tr>\r</table>\r<![endif]-->\r</div>\r</td>\r</tr>\r</table>\r<!-- Full Bleed Background Section : END -->\r<!--[if mso | IE]>\r</td>\r</tr>\r</table>\r<![endif]-->\r</center>\r</body>\r</html>\r';
+
+                var x = document.getElementById('closing');
+                var closingtext1 = x.elements[0].value;
+                var closingtext2 = x.elements[1].value;
+
+                kk += closinghtml1 + closingtext1 + closinghtml2 + closingtext2 + closinghtml3;
             }
         }
         //var text = document.createTextNode(kk);
