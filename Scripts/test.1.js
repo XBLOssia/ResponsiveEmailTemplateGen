@@ -361,7 +361,7 @@ function makeItADoc(text, name, type){
                 var twocoltxt1 = x.elements[1].value;
                 var twocolimg2 = x.elements[2].value;
                 var twocoltxt2 = x.elements[3].value;
-                kk += twocolumnhtml1 + twocolimg1 + twocolumnhtml2 + twocoltxt1 + twocolumnhtml3 + twocolimg2 + twocolumnhtml4 + twocoltxt2;
+                kk += twocolumnhtml1 + twocolimg1 + twocolumnhtml2 + twocoltxt1 + twocolumnhtml3 + twocolimg2 + twocolumnhtml4 + twocoltxt2 + twocolumnhtml5;
             }
             if (list1 === "threecols"){
                 var threecolumnhtml1 = '<!-- 3 Even Columns : BEGIN -->\r<tr>\r<td height="100%" valign="top" width="100%" style="padding: 10px 0; background-color: #ffffff;">\r<!--[if mso]>\r<table role="presentation" border="0" cellspacing="0" cellpadding="0" width="660">\r<tr>\r<td valign="top" width="660">\r<![endif]-->\r<table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:660px;">\r<tr>\r<td align="center" valign="top" style="font-size:0;">\r<!--[if mso]>\r<table role="presentation" border="0" cellspacing="0" cellpadding="0" width="660">\r<tr>\r<td valign="top" width="220">\r<![endif]-->\r<div style="display:inline-block; margin: 0 -2px; max-width:33.33%; min-width:220px; vertical-align:top; width:100%;" class="stack-column">\r<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">\r<tr>\r<td style="padding: 10px 10px;">\r<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px;text-align: left;">\r<tr>\r<td>\r<img src="';
