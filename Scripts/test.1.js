@@ -125,7 +125,7 @@ function findTags(){  //Finds tags, puts 'em in a list
         }
     document.getElementById("replacerator").innerHTML = kk;
 }
-
+//the function below can be refactored and made much, much smaller, but I'm too lazy to do that now.
 function checkEmpty(){ //Checks for presence of all draggables, replaces missing ones
     var checkempty = document.getElementsByClassName("heading"); //Find first draggable, enumerate
     n = (checkempty.length);
@@ -164,6 +164,26 @@ function checkEmpty(){ //Checks for presence of all draggables, replaces missing
             facemake.setAttribute('dragend', 'staticDragger(event)');
             facemake.setAttribute('class', 'twocols');
             facemake.setAttribute('id', 'twocols_1');
+            faceplace.appendChild(facemake);
+        }
+        var checkempty = document.getElementsByClassName("threecols"); //Second verse, same as the first
+        n = (checkempty.length);
+        //console.log(n);
+        if(n == 0){
+            var faceplace = document.getElementById("div1");
+            var facemake = document.createElement("img");
+            facemake.setAttribute('src', './Assets/3cols.png');
+            facemake.setAttribute('align', 'center');
+            facemake.setAttribute('width', '200');
+            facemake.setAttribute('height', '85');
+            facemake.setAttribute('draggable', 'true');
+            facemake.setAttribute('ondragstart', 'startDrag(event)');
+            facemake.setAttribute('ondrag', 'drag(event)');
+            facemake.setAttribute('ondragover', 'dragOver(event)');
+            facemake.setAttribute('ondragleave', 'dragEnd(event)');
+            facemake.setAttribute('dragend', 'staticDragger(event)');
+            facemake.setAttribute('class', 'threecols');
+            facemake.setAttribute('id', 'threecols_1');
             faceplace.appendChild(facemake);
         }
     var checkempty = document.getElementsByClassName("leftimg"); //Second verse, same as the first
@@ -281,13 +301,16 @@ function makeItHtml(){
                     kk += '<img src="./Assets/Heading.png" height="100" width="100"><form id="heading"><input type="text" name="headimg" width="800" value="Heading image URL" onKeyPress="return noEnter()"></form><br />'
                 }
                 if (list1 === "twocols") {
-                    kk += '<img src="./Assets/2cols.png" height="100" width="100"><br />';
+                    kk += '<img src="./Assets/2cols.png" height="100" width="100"><form id="twocols"><input type="text" name="twocolsimg1" width="800" value="Left img URL" onKeyPress="return noEnter()"><input type="text" name="leftcoltxt" width="800" value="Left column text" onKeyPress="return noEnter()"><input type="text" name="rightcolimg" width="800" value="Right column img URL" onKeyPress="return noEnter()"><input type="text" name="rightcoltext" width="800" value="Right column text" onKeyPress="return noEnter()"></form><br />';
+                }
+                if (list1 === "threecols"){
+                    kk += '<img src="./Assets/Leftimg.png" height="100" width="100"><form id="threecols"><input type="text" name="columnoneimg" width="800" value="1st column img" onKeyPress="return noEnter()"><input type="text" name="columnonetxt" width="800" value="1st column text" onKeyPress="return noEnter()"><input type="text" name="secondcolumnimg" width="800" value="2nd column image" onKeyPress="return noEnter()"><input type="text" name="secondcolumntext" width="800" value="2nd column text" onKeyPress="return noEnter()"><input type="text" name="thirdcolumnimg" width="800" value="3rd column img" onKeyPress="return noEnter()"><input type="text" name="thirdcolumntext" width="800" value="3rd column text" onKeyPress="return noEnter()"></form><br />';
                 }
                 if (list1 === "leftimg"){
-                    kk += '<img src="./Assets/Leftimg.png" height="100" width="100"><br />';
+                    kk += '<img src="./Assets/Leftimg.png" height="100" width="100"><form id="leftimg"><input type="text" name="imgurl" width="800" value="Img URL" onKeyPress="return noEnter()"><input type="text" name="headline" width="800" value="Headline" onKeyPress="return noEnter()"><input type="text" name="text" width="800" value="Text goes here" onKeyPress="return noEnter()"><input type="text" name="buttonurl" width="800" value="Button URL" onKeyPress="return noEnter()"><input type="text" name="buttontext" width="800" value="Link text" onKeyPress="return noEnter()"></form><br />';
                 }
                 if (list1 === "rightimg"){
-                    kk += '<img src="./Assets/Rightimg.png" height="100" width="100"><br />';
+                    kk += '<img src="./Assets/Rightimg.png" height="100" width="100"><form id="rightimg"><input type="text" name="imgurl" width="800" value="Img URL" onKeyPress="return noEnter()"><input type="text" name="headline" width="800" value="Headline" onKeyPress="return noEnter()"><input type="text" name="text" width="800" value="Text goes here" onKeyPress="return noEnter()"><input type="text" name="buttonurl" width="800" value="Button URL" onKeyPress="return noEnter()"><input type="text" name="buttontext" width="800" value="Text goes here" onKeyPress="return noEnter()"></form><br />';
                 }
                 if (list1 === "bgimg"){
                     kk += '<img src="./Assets/BGimg.png" height="100" width="100"><form id="bgimg"><input type="text" name="bgimgurl" width="800" value="BG img URL" onKeyPress="return noEnter()"><input type="text" name="bgimgtext" width="800" value="Text goes here" onKeyPress="return noEnter()"></form><br />';
@@ -327,16 +350,68 @@ function makeItADoc(text, name, type){
                 kk = header1 + bigimagelink + header2;
             }
             if (list1 === "twocols"){
-                var twocolumnhtml = "";
-                kk += '<img src="./Assets/2cols.png" height="100" width="100"> \r';
+                var twocolumnhtml1 = '<!-- 2 Even Columns : BEGIN -->\r<tr>\r<td height="100%" valign="top" width="100%" style="background-color: #ffffff;">\r<!--[if mso]>\r<table role="presentation" border="0" cellspacing="0" cellpadding="0" width="660">\r<tr>\r<td valign="top" width="660">\r<![endif]-->\r<table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:660px;">\r<tr>\r<td align="center" valign="top" style="font-size:0; padding: 10px 0;">\r<!--[if mso]>\r<table role="presentation" border="0" cellspacing="0" cellpadding="0" width="660">\r<tr>\r<td valign="top" width="330">\r<![endif]-->\r<div style="display:inline-block; margin: 0 -2px; width:100%; min-width:200px; max-width:330px; vertical-align:top;" class="stack-column">\r<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">\r<tr>\r<td style="padding: 10px 10px;">\r<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px;text-align: left;">\r<tr>\r<td>\r<img src="';
+                var twocolumnhtml2 = '" width="310" height="" border="0" alt="alt_text" class="center-on-narrow" style="width: 100%; max-width: 310px; height: auto; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;">\r</td>\r</tr>\r<tr>\r<td style="font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555; padding-top: 10px;" class="stack-column-center">\r<p style="margin: 0;">';
+                var twocolumnhtml3 = '</p>\r</td>\r</tr>\r</table>\r</td>\r</tr>\r</table>\r</div>\r<!--[if mso]>\r</td>\r<td valign="top" width="330">\r<![endif]-->\r<div style="display:inline-block; margin: 0 -2px; width:100%; min-width:200px; max-width:330px; vertical-align:top;" class="stack-column">\r<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">\r<tr>\r<td style="padding: 10px 10px;">\r<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px;text-align: left;">\r<tr>\r<td>\r<img src="';
+                var twocolumnhtml4 = '" width="310" height="" border="0" alt="alt_text" class="center-on-narrow" style="width: 100%; max-width: 310px; height: auto; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;">\r</td>\r</tr>\r<tr>\r<td style="font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555; padding-top: 10px;" class="stack-column-center">\r<p style="margin: 0;">';
+                var twocolumnhtml5 = '</p>\r</td>\r</tr>\r</table>\r</td>\r</tr>\r</table>\r</div>\r<!--[if mso]>\r</td>\r</tr>\r</table>\r<![endif]-->\r</td>\r</tr>\r</table>\r<!--[if mso]>\r</td>\r</tr>\r</table>\r<![endif]-->\r</td>\r</tr>\r<!-- 2 Even Columns : END -->\r';
+
+                var x = document.getElementById('twocols');
+                var twocolimg1 = x.elements[0].value;
+                var twocoltxt1 = x.elements[1].value;
+                var twocolimg2 = x.elements[2].value;
+                var twocoltxt2 = x.elements[3].value;
+                kk += twocolumnhtml1 + twocolimg1 + twocolumnhtml2 + twocoltxt1 + twocolumnhtml3 + twocolimg2 + twocolumnhtml4 + twocoltxt2;
+            }
+            if (list1 === "threecols"){
+                var threecolumnhtml1 = '<!-- 3 Even Columns : BEGIN -->\r<tr>\r<td height="100%" valign="top" width="100%" style="padding: 10px 0; background-color: #ffffff;">\r<!--[if mso]>\r<table role="presentation" border="0" cellspacing="0" cellpadding="0" width="660">\r<tr>\r<td valign="top" width="660">\r<![endif]-->\r<table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:660px;">\r<tr>\r<td align="center" valign="top" style="font-size:0;">\r<!--[if mso]>\r<table role="presentation" border="0" cellspacing="0" cellpadding="0" width="660">\r<tr>\r<td valign="top" width="220">\r<![endif]-->\r<div style="display:inline-block; margin: 0 -2px; max-width:33.33%; min-width:220px; vertical-align:top; width:100%;" class="stack-column">\r<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">\r<tr>\r<td style="padding: 10px 10px;">\r<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px;text-align: left;">\r<tr>\r<td>\r<img src="';
+                var threecolumnhtml2 = '" width="200" height="" border="0" alt="alt_text" class="center-on-narrow" style="width: 100%; max-width: 200px; height: auto; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;">\r</td>\r</tr>\r<tr>\r<td style="font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555; padding-top: 10px;" class="stack-column-center">\r<p style="margin: 0;">';
+                var threecolumnhtml3 = '</p>\r</td>\r</tr>\r</table>\r</td>\r</tr>\r</table>\r</div>\r<!--[if mso]>\r</td>\r<td valign="top" width="220">\r<![endif]-->\r<div style="display:inline-block; margin: 0 -2px; max-width:33.33%; min-width:220px; vertical-align:top; width:100%;" class="stack-column">\r<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">\r<tr>\r<td style="padding: 10px 10px;">\r<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px;text-align: left;">\r<tr>\r<td>\r<img src="';
+                var threecolumnhtml4 = '" width="200" height="" border="0" alt="alt_text" class="center-on-narrow" style="width: 100%; max-width: 200px; height: auto; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;">\r</td>\r</tr>\r<tr>\r<td style="font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555; padding-top: 10px;" class="stack-column-center">\r<p style="margin: 0;">';
+                var threecolumnhtml5 = '</p>\r</td>\r</tr>\r</table>\r</td>\r</tr>\r</table>\r</div>\r<!--[if mso]>\r</td>\r<td valign="top" width="220">\r<![endif]-->\r<div style="display:inline-block; margin: 0 -2px; max-width:33.33%; min-width:220px; vertical-align:top; width:100%;" class="stack-column">\r<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">\r<tr>\r<td style="padding: 10px 10px;">\r<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px;text-align: left;">\r<tr>\r<td>\r<img src="';
+                var threecolumnhtml6 = '" width="200" height="" border="0" alt="alt_text" class="center-on-narrow" style="width: 100%; max-width: 200px; height: auto; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;">\r</td>\r</tr>\r<tr>\r<td style="font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555; padding-top: 10px;" class="stack-column-center">\r<p style="margin: 0;">';
+                var threecolumnhtml7 = '</p>\r</td>\r</tr>\r</table>\r</td>\r</tr>\r</table>\r</div>\r<!--[if mso]>\r</td>\r</tr>\r</table>\r<![endif]-->\r</td>\r</tr>\r</table>\r<!--[if mso]>\r</td>\r</tr>\r</table>\r<![endif]-->\r</td>\r</tr>\r<!-- 3 Even Columns : END -->\r';
+
+                var x = document.getElementById('threecols');
+                var threecolsimg1 = x.elements[0].value;
+                var threecolstxt1 = x.elements[1].value;
+                var threecolsimg2 = x.elements[2].value;
+                var threecolstxt2 = x.elements[3].value;
+                var threecolsimg3 = x.elements[4].value;
+                var threecolstxt3 = x.elements[5].value;
+                kk += threecolumnhtml1 + threecolsimg1 + threecolumnhtml2 + threecolstxt1 + threecolumnhtml3 + threecolsimg2 + threecolumnhtml4 + threecolstxt2 + threecolumnhtml5 + threecolsimg3 + threecolumnhtml6 + threecolstxt3 + threecolumnhtml7;
             }
             if (list1 === "leftimg"){
-                var leftimghtml = "";
-                kk += '<img src="./Assets/Leftimg.png" height="100" width="100"> \r';
+                var leftimghtml1 = '<!-- Thumbnail Left, Text Right : BEGIN -->\r<tr>\r<!-- dir=ltr is where the magic happens. This can be changed to dir=rtl to swap the alignment on wide while maintaining stack order on narrow. -->\r<td dir="ltr" height="100%" valign="top" width="100%" style="padding: 10px 0; background-color: #ffffff;">\r<!--[if mso]>\r<table role="presentation" border="0" cellspacing="0" cellpadding="0" width="660" style="width: 660px;">\r<tr>\r<td valign="top" width="660" style="width: 660px;">\r<![endif]-->\r<table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:660px;">\r<tr>\r<td align="center" valign="top" style="font-size:0; padding: 10px 0;">\r<!--[if mso]>\r<table role="presentation" border="0" cellspacing="0" cellpadding="0" width="660" style="width: 660px;">\r<tr>\r<td valign="top" width="220" style="width: 220px;">\r<![endif]-->\r<div style="display:inline-block; margin: 0 -2px; max-width: 200px; min-width:160px; vertical-align:top; width:100%;" class="stack-column">\r<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">\r<tr>\r<td dir="ltr" style="padding: 0 10px 10px 10px;">\r<img src="';
+                var leftimghtml2 = '" width="200" height="" border="0" alt="alt_text" class="center-on-narrow" style="width: 100%; max-width: 200px; height: auto; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 15px; color: #555555;">\r</td>\r</tr>\r</table>\r</div>\r<!--[if mso]>\r</td>\r<td valign="top" width="440" style="width: 440px;">\r<![endif]-->\r<div style="display:inline-block; margin: 0 -2px; max-width:66.66%; min-width:320px; vertical-align:top;" class="stack-column">\r<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">\r<tr>\r<td dir="ltr" style="font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555; padding: 10px 10px 0; text-align: left;" class="center-on-narrow">\r<h2 style="margin: 0 0 10px 0; font-family: sans-serif; font-size: 18px; line-height: 22px; color: #333333; font-weight: bold;">';
+                var leftimghtml3 = '</h2>\r<p style="margin: 0 0 10px 0;">';
+                var leftimghtml4 = '</p>\r<!-- Button : BEGIN -->\r<table role="presentation" cellspacing="0" cellpadding="0" border="0" class="center-on-narrow" style="float:left;">\r<tr>\r<td class="button-td button-td-primary" style="border-radius: 4px; background: #FF0033;">\r<a class="button-a button-a-primary" href="';
+                var leftimghtml5 = '" style="background: #FF0033; border: 1px solid #FF0033; font-family: sans-serif; font-size: 15px; line-height: 15px; text-decoration: none; padding: 13px 17px; color: #ffffff; display: block; border-radius: 4px;">';
+                var leftimghtml6 = '</a>\r</td>\r</tr>\r</table>\r<!-- Button : END -->\r</td>\r</tr>\r</table>\r</div>\r<!--[if mso]>\r</td>\r</tr>\r</table>\r<![endif]-->\r</td>\r</tr>\r</table>\r<!--[if mso]>\r</td>\r</tr>\r</table>\r<![endif]-->\r</td>\r</tr>\r<!-- Thumbnail Left, Text Right : END -->\r';
+
+                var x = document.getElementById('leftimg');
+                var leftimgurl1 = x.elements[0].value;
+                var leftimgheadline = x.elements[1].value;
+                var leftimgtxt = x.elements[2].value;
+                var leftimgurl2 = x.elements[3].value;
+                var leftimglink = x.elements[4].value;
+                kk += leftimghtml1 + leftimgurl1 + leftimghtml2 + leftimgheadline + leftimghtml3 + leftimgtxt + leftimghtml4 + leftimgurl2 + leftimghtml5 + leftimglink + leftimghtml6;
             }
             if (list1 === "rightimg"){
-                var rightimghtml = "";
-                kk += '<img src="./Assets/Rightimg.png" height="100" width="100"> \r';
+                var rightimghtml1 = '<!-- Thumbnail Right, Text Left : BEGIN -->\r<tr>\r<!-- dir=rtl is where the magic happens. This can be changed to dir=ltr to swap the alignment on wide while maintaining stack order on narrow. -->\r<td dir="rtl" height="100%" valign="top" width="100%" style="padding: 10px 0; background-color: #ffffff;">\r<!--[if mso]>\r<table role="presentation" border="0" cellspacing="0" cellpadding="0" width="660" style="width: 660px;">\r<tr>\r<td valign="top" width="660">\r<![endif]-->\r<table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:660px;">\r<tr>\r<td align="center" valign="top" style="font-size:0; padding: 10px 0;">\r<!--[if mso]>\r<table role="presentation" border="0" cellspacing="0" cellpadding="0" width="660" style="width: 660px;">\r<tr>\r<td valign="top" width="220" style="width: 220px;">\r<![endif]-->\r<div style="display:inline-block; margin: 0 -2px; max-width: 200px; min-width:160px; vertical-align:top; width:100%;" class="stack-column">\r<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">\r<tr>\r<td dir="ltr" style="padding: 0 10px 10px 10px;">\r<img src="';
+                var rightimghtml2 = '" width="200" height="" border="0" alt="alt_text" class="center-on-narrow" style="width: 100%; max-width: 200px; height: auto; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 15px; color: #555555;">\r</td>\r</tr>\r</table>\r</div>\r<!--[if mso]>\r</td>\r<td valign="top" width="440" style="width: 440px;">\r<![endif]-->\r<div style="display:inline-block; margin: 0 -2px; max-width:66.66%; min-width:320px; vertical-align:top;" class="stack-column">\r<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">\r<tr>\r<td dir="ltr" style="font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555; padding: 10px 10px 0; text-align: left;" class="center-on-narrow">\r<h2 style="margin: 0 0 10px 0; font-family: sans-serif; font-size: 18px; line-height: 22px; color: #333333; font-weight: bold;">';
+                var rightimghtml3 = '</h2>\r<p style="margin: 0 0 10px 0;">';
+                var rightimghtml4 = '</p>\r<!-- Button : BEGIN -->\r<table role="presentation" cellspacing="0" cellpadding="0" border="0" class="center-on-narrow" style="float:left;">\r<tr>\r<td class="button-td button-td-primary" style="border-radius: 4px; background: #FF0033;">\r<a class="button-a button-a-primary" href="';
+                var rightimghtml5 = '" style="background: #FF0033; border: 1px solid #FF0033; font-family: sans-serif; font-size: 15px; line-height: 15px; text-decoration: none; padding: 13px 17px; color: #ffffff; display: block; border-radius: 4px;">';
+                var rightimghtml6 = '</a>\r</td>\r</tr>\r</table>\r<!-- Button : END -->\r</td>\r</tr>\r</table>\r</div>\r<!--[if mso]>\r</td>\r</tr>\r</table>\r<![endif]-->\r</td>\r</tr>\r</table>\r<!--[if mso]>\r</td>\r</tr>\r</table>\r<![endif]-->\r</td>\r</tr>\r<!-- Thumbnail Right, Text Left : END -->\r';
+
+                var x = document.getElementById('rightimg');
+                var rightimgurl1 = x.elements[0].value;
+                var rightimgheadline = x.elements[1].value;
+                var rightimgtxt = x.elements[2].value;
+                var rightimgurl2 = x.elements[3].value;
+                var rightimglink = x.elements[4].value;
+                kk += rightimghtml1 + rightimgurl1 + rightimghtml2 + rightimgheadline + rightimghtml3 + rightimgtxt + rightimghtml4 + rightimgurl2 + rightimghtml5 + rightimglink + rightimghtml6;
             }
             if (list1 === "bgimg"){
                 var bgimghtml1 = '<!-- Background Image with Text : BEGIN -->\r<tr>\r<!-- Bulletproof Background Images c/o https://backgrounds.cm -->\r<td valign="middle" style="text-align: center; background-image: url(\'';
