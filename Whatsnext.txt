@@ -1,5 +1,0 @@
-I can't figure out how to update that nested variable.
-
-Once I figure that out, I'll need to do the same with all the other things.
-
-ecch.

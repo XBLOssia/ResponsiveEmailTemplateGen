@@ -9,13 +9,14 @@
 		<script src="Dev/vue.js"></script>
 	</head>
 <body>
-<h1>Prototype 1 for the drag and drop thing I want to make</h1>
-<p>Blah blah I'll make this look good with CSS later</p>
+<h1>Prototype like a billion for the drag and drop thing I want to make</h1>
+<p>Blah blah I'll make this look better with even more CSS later</p>
 <div id="grandparent">
 	<div class="parent">
 		<div class="topbox" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)" >
 			<img src="./Assets/Heading.png" align="center" width="200" height="85" draggable="true" ondragstart="startDrag(event)" ondrag="drag(event)"  class="heading" id="heading_1" ondragover="dragOver(event)" ondragleave="dragEnd(event)">
-			<img src="./Assets/2cols.png" align="center" width="200" height="85" draggable="true" ondragstart="startDrag(event)" ondrag="drag(event)"  class="twocols" id="twocols_1" ondragover="dragOver(event)" ondragleave="dragEnd(event)">
+			<img src="./Assets/twocols.png" align="center" width="200" height="85" draggable="true" ondragstart="startDrag(event)" ondrag="drag(event)"  class="twocols" id="twocols_1" ondragover="dragOver(event)" ondragleave="dragEnd(event)">
+			<img src="./Assets/threecols.png" align="center" width="200" height="85" draggable="true" ondragstart="startDrag(event)" ondrag="drag(event)"  class="threecols" id="threecols_1" ondragover="dragOver(event)" ondragleave="dragEnd(event)">
 			<img src="./Assets/Leftimg.png" align="center" width="200" height="85" draggable="true" ondragstart="startDrag(event)" ondrag="drag(event)"  class="leftimg" id="leftimg_1" ondragover="dragOver(event)" ondragleave="dragEnd(event)">
 			<img src="./Assets/Rightimg.png" align="center" width="200" height="85" draggable="true" ondragstart="startDrag(event)" ondrag="drag(event)"  class="rightimg" id="rightimg_1" ondragover="dragOver(event)" ondragleave="dragEnd(event)">
 			<img src="./Assets/BGimg.png" align="center" width="200" height="85" draggable="true" ondragstart="startDrag(event)" ondrag="drag(event)"  class="bgimg" id="bgimg_1" ondragover="dragOver(event)" ondragleave="dragEnd(event)">
@@ -29,13 +30,14 @@
 	</div>
 	<div id="outputparent">
 		<div id="textbox">
-			<div id="replacerator">This is the demo text. Replace me!</div>
+			<div id="replacerator">Click the button below when your elements are in place.</div>
 			<div id="buttonator">
-				<button onclick="replaceMe()">OwO</button>
-				<button onclick="findTags()">findTags</button>
-				<button onclick="makeItHtml()">Update HTML</button>
-				<br /><a href"" id="a">Download as a file, open with Wordpad.</a>
-				<br /><button onclick="makeItADoc('file text', 'output.txt', 'text/plain')">This seems like it could work?</button>
+				<!--<button onclick="replaceMe()">OwO</button>
+				<button onclick="findTags()">findTags</button> !-->
+				<button onclick="makeItHtml()">Update Boxes</button>
+				<br /><a href"" id="a">Download the HTML file.</a>
+				<br /><button onclick="makeItADoc('file text', 'output.txt', 'text/plain')">-:-Download-:-  </button>
+				<br />The ASCII decorations let you know it's legit.
 			</div>
 		</div>
 	</div>
