@@ -2,16 +2,18 @@
 html {
     background-color: black;
     color: white;
+    overflow-y: hidden;
 }
 
 #grandparent {
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-content: center;
-    align-items: center;
+    align-content: stretch;
+    align-items: stretch;
     background-color: black;
     color: white;
+    max-height: 700px;
 }
 
 div.parent {
@@ -23,7 +25,7 @@ div.parent {
     text-justify: auto;
     background-color: rgba(196, 196, 196, 0.75);
     max-height: 100%;
-    max-width: 50%;
+    max-width: 40%;
     margin: auto auto auto 10px;
 }
 
@@ -48,7 +50,7 @@ div.topbox  {
     float: left;
     align-content: center;
     align-items: center;
-    min-width: 300px;
+    min-width: 210px;
     min-height: 100px;
     margin: 2px;
     padding: 10px;
@@ -61,7 +63,7 @@ div.dropbox  {
     float: left;
     align-content: center;
     align-items: center;
-    min-width: 300px;
+    min-width: 210px;
     min-height: 100px;
     margin: 2px;
     padding: 10px;
@@ -70,7 +72,7 @@ div.dropbox  {
 
 div.trash  {
     float: left;
-    width: 300px;
+    width: 210px;
     height: 40px;
     margin: 2px;
     padding: 10px;
@@ -80,12 +82,12 @@ div.trash  {
 #outputparent {
     align-content: flex-start;
     align-items: flex-start;
-    flex-basis: 50%;
     align-self: stretch;
+    flex-grow: 2;
 }
 
 #replacerator{
-    background-color: lightgray;
+    background-color: lightpink;
     color: black;
     display:flex;
     flex-direction: column;
