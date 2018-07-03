@@ -85,3 +85,7 @@ div.trash  {
     align-content: flex-start;
     align-items: stretch;
 }
+textarea{
+    background-color: white;
+    color: black;
+}
