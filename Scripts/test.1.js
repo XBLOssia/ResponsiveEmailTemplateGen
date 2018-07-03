@@ -167,31 +167,32 @@ function makeItHtml(){ // This one generates the form boxes - at some point I'd 
             var list = gettags[i].id;
             var list1 = list.replace(/_(\d)+/g, "");
                 if (list1 === "heading") {
-                    kk += '<img src="./Assets/Heading.png" height="100" width="100"><form id="heading"><input type="text" name="headimg" width="800" value="Heading image URL" onKeyPress="return noEnter()"></form><br />'
+                    kk += '<img src="./Assets/Heading.png" height="100" width="100"><form id="heading">Heading image (1360x600)<br /><input type="text" name="headimg" width="800" value="Heading image URL" onKeyPress="return noEnter()"></form><br />'
                 }
                 if (list1 === "twocols") {
-                    kk += '<img src="./Assets/twocols.png" height="100" width="100"><form id="twocols"><input type="text" name="twocolsimg1" width="800" value="Left img URL" onKeyPress="return noEnter()"><input type="text" name="leftcoltxt" width="800" value="Left column text" onKeyPress="return noEnter()"><br /><input type="text" name="rightcolimg" width="800" value="Right column img URL" onKeyPress="return noEnter()"><input type="text" name="rightcoltext" width="800" value="Right column text" onKeyPress="return noEnter()"></form><br />';
+                    kk += '<img src="./Assets/twocols.png" height="100" width="100"><form id="twocols">Left image (310x310)<br /><input type="text" name="twocolsimg1" width="800" value="Left img URL" onKeyPress="return noEnter()"><br />Right image (310x310)<br /><input type="text" name="rightcolimg" width="800" value="Right column img URL" onKeyPress="return noEnter()"></form><br /><script type="text/javascript"> bkLib.onDomLoaded(function() {var myEditor = new nicEditor().panelInstance("twocollefttxt")});</script><p>Left side text<textarea id="twocollefttxt" form="twocols" cols="40">Left side text</textarea><script type="text/javascript"> bkLib.onDomLoaded(function() {var myEditor = new nicEditor().panelInstance("twocolrighttxt")});</script><p>Right side text<textarea id="twocolrighttxt" form="twocols" cols="40">Right side text</textarea><br />';
                 }
                 if (list1 === "threecols"){
-                    kk += '<img src="./Assets/threecols.png" height="100" width="100"><form id="threecols"><input type="text" name="columnoneimg" width="800" value="1st column img" onKeyPress="return noEnter()"><input type="text" name="columnonetxt" width="800" value="1st column text" onKeyPress="return noEnter()"><br /><input type="text" name="secondcolumnimg" width="800" value="2nd column image" onKeyPress="return noEnter()"><input type="text" name="secondcolumntext" width="800" value="2nd column text" onKeyPress="return noEnter()"><br /><input type="text" name="thirdcolumnimg" width="800" value="3rd column img" onKeyPress="return noEnter()"><input type="text" name="thirdcolumntext" width="800" value="3rd column text" onKeyPress="return noEnter()"></form><br />';
+                    kk += '<img src="./Assets/threecols.png" height="100" width="100"><form id="threecols">Left image (200x200)<br /><input type="text" name="columnoneimg" width="800" value="1st column img" onKeyPress="return noEnter()"><br />Center image (200x200)<br /><input type="text" name="secondcolumnimg" width="800" value="2nd column image" onKeyPress="return noEnter()"><br />Right image (200x200)<br /><input type="text" name="thirdcolumnimg" width="800" value="3rd column img" onKeyPress="return noEnter()"></form><br /><script type="text/javascript"> bkLib.onDomLoaded(function() {var myEditor = new nicEditor().panelInstance("threecolleft")});</script><p>Left side text<textarea id="threecolleft" form="threecols" cols="40">Left side text</textarea><script type="text/javascript"> bkLib.onDomLoaded(function() {var myEditor = new nicEditor().panelInstance("threecolmid")});</script><p>Middle text<textarea id="threecolmid" form="threecols" cols="40">Center text</textarea><script type="text/javascript"> bkLib.onDomLoaded(function() {var myEditor = new nicEditor().panelInstance("threecolright")});</script><p>Right side text<textarea id="threecolright" form="threecols" cols="40">Right side text</textarea><br />';
                 }
                 if (list1 === "leftimg"){
-                    kk += '<img src="./Assets/Leftimg.png" height="100" width="100"><form id="leftimg"><input type="text" name="imgurl" width="800" value="Img URL" onKeyPress="return noEnter()"><input type="text" name="headline" width="800" value="Headline" onKeyPress="return noEnter()"><input type="text" name="text" width="800" value="Text goes here" onKeyPress="return noEnter()"><input type="text" name="buttonurl" width="800" value="Button URL" onKeyPress="return noEnter()"><input type="text" name="buttontext" width="800" value="Link text" onKeyPress="return noEnter()"></form><br />';
+                    kk += '<img src="./Assets/Leftimg.png" height="100" width="100"><form id="leftimg">Thumbnail URL (100x100)<br /><input type="text" name="imgurl" width="800" value="Img URL" onKeyPress="return noEnter()"><br />Headline<br /><input type="text" name="headline" width="800" value="Headline" onKeyPress="return noEnter()"><br />URL for button<br /><input type="text" name="buttonurl" width="800" value="Button URL" onKeyPress="return noEnter()"><br />Link text<br /><input type="text" name="buttontext" width="800" value="Link text" onKeyPress="return noEnter()"></form><br /><script type="text/javascript"> bkLib.onDomLoaded(function() {var myEditor = new nicEditor().panelInstance("leftimgtxt")});</script><p>Left Thumbnail Text<textarea id="leftimgtxt" form="leftimg" cols="40">Left Thumbnail Text</textarea><br />';
                 }
                 if (list1 === "rightimg"){
-                    kk += '<img src="./Assets/Rightimg.png" height="100" width="100"><form id="rightimg"><input type="text" name="imgurl" width="800" value="Img URL" onKeyPress="return noEnter()"><input type="text" name="headline" width="800" value="Headline" onKeyPress="return noEnter()"><input type="text" name="text" width="800" value="Text goes here" onKeyPress="return noEnter()"><input type="text" name="buttonurl" width="800" value="Button URL" onKeyPress="return noEnter()"><input type="text" name="buttontext" width="800" value="Text goes here" onKeyPress="return noEnter()"></form><br />';
+                    kk += '<img src="./Assets/Rightimg.png" height="100" width="100"><form id="rightimg">Thumbnail URL (100x100)<br /><input type="text" name="imgurl" width="800" value="Img URL" onKeyPress="return noEnter()"><br />Headline<br /><input type="text" name="headline" width="800" value="Headline" onKeyPress="return noEnter()"><br />URL for button<br /><input type="text" name="buttonurl" width="800" value="Button URL" onKeyPress="return noEnter()"><br />Text for button<br /><input type="text" name="buttontext" width="800" value="Text goes here" onKeyPress="return noEnter()"></form><br /><script type="text/javascript"> bkLib.onDomLoaded(function() {var myEditor = new nicEditor().panelInstance("rightimgtxt")});</script><p>Right Thumbnail Text<textarea id="rightimgtxt" form="rightimg" cols="40">Right Thumbnail Text</textarea><br />';
                 }
                 if (list1 === "bgimg"){
-                    kk += '<img src="./Assets/BGimg.png" height="100" width="100"><form id="bgimg"><input type="text" name="bgimgurl" width="800" value="BG img URL" onKeyPress="return noEnter()"><input type="text" name="bgimgtext" width="800" value="Text goes here" onKeyPress="return noEnter()"></form><br />';
+                    kk += '<img src="./Assets/BGimg.png" height="100" width="100"><form id="bgimg">BG image URL (scales, best @ 680px wide, over 180px tall) <br /><input type="text" name="bgimgurl" width="800" value="BG img URL" onKeyPress="return noEnter()"></form><br /><script type="text/javascript"> bkLib.onDomLoaded(function() {var myEditor = new nicEditor().panelInstance("bgimgtxt")});</script><p><textarea id="bgimgtxt" form="bgimg" cols="40">Body text here</textarea><br />';
                 }
                 if (list1 === "noimg"){
-                    kk += '<img src="./Assets/Noimg.png" height="100" width="100"><form id="noimg"><input type="text" name="noimg1" width="800" value="Headline" onKeyPress="return noEnter()"><input type="text" name="noimg2" width="800" height="800" value="Body text" onKeyPress="return noEnter()"><input type="text" name="noimg3" width="800" value="Link URL" onKeyPress="return noEnter()"><input type="text" name="noimg4" width="800" value="Link Text" onKeyPress="return noEnter()"></form><br />';
+                    kk += '<img src="./Assets/Noimg.png" height="100" width="100"><form id="noimg">Headline<br /><input type="text" name="noimg1" width="800" value="Headline" onKeyPress="return noEnter()"><br />Button URL<br /><input type="text" name="noimg3" width="800" value="Link URL" onKeyPress="return noEnter()"><br />Button text<br /><input type="text" name="noimg4" width="800" value="Link Text" onKeyPress="return noEnter()"></form><br /><script type="text/javascript"> bkLib.onDomLoaded(function() {var myEditor = new nicEditor().panelInstance("noimgbody")});</script><p><textarea id="noimgbody" form="noimg" cols="40">Body text here</textarea><br />';
                 }
                 if (list1 === "closing"){
-                    kk += '<img src="./Assets/Closing.png" height="100" width="100"><br /><form id="closing"><input type="text" name="closing1" width="800" value="Closing text 1" onKeyPress="return noEnter()"><input type="text" name="closing2" width="800" value="Closing text" onKeyPress="return noEnter()"></form><br />';
+                    kk += '<img src="./Assets/Closing.png" height="100" width="100"><br /><form id="closing">Signature URL<br /><input type="text" name="signatureurl" width="800" value="Signature URL" onKeyPress="return noEnter()"></form><script type="text/javascript"> bkLib.onDomLoaded(function() {var myEditor = new nicEditor().panelInstance("closing1")});</script><p>Closing text 1 (above fold)<textarea id="closing1" form="closing" cols="40">Body text here</textarea><script type="text/javascript"> bkLib.onDomLoaded(function() {var myEditor = new nicEditor().panelInstance("closing2")});</script><p>Closing text 2 (behind fold)<textarea id="closing2" form="closing" cols="40">Body text here</textarea><br />';
                 }
         }
         document.getElementById("replacerator").innerHTML = kk;
+        nicEditors.allTextAreas();
 }
 
 function makeItADoc(text, name, type){ // This one makes the HTML document! Also needs to be able to handle multiples
@@ -223,9 +224,11 @@ function makeItADoc(text, name, type){ // This one makes the HTML document! Also
 
                 var x = document.getElementById('twocols');
                 var twocolimg1 = x.elements[0].value;
-                var twocoltxt1 = x.elements[1].value;
-                var twocolimg2 = x.elements[2].value;
-                var twocoltxt2 = x.elements[3].value;
+                let twocoltextbox1 = nicEditors.findEditor('twocollefttxt');
+                var twocoltxt1 = twocoltextbox1.getContent();
+                var twocolimg2 = x.elements[1].value;
+                let twocoltextbox2 = nicEditors.findEditor('twocolrighttxt');
+                var twocoltxt2 = twocoltextbox2.getContent();
                 kk += twocolumnhtml1 + twocolimg1 + twocolumnhtml2 + twocoltxt1 + twocolumnhtml3 + twocolimg2 + twocolumnhtml4 + twocoltxt2 + twocolumnhtml5;
             }
             if (list1 === "threecols"){
@@ -239,11 +242,14 @@ function makeItADoc(text, name, type){ // This one makes the HTML document! Also
 
                 var x = document.getElementById('threecols');
                 var threecolsimg1 = x.elements[0].value;
-                var threecolstxt1 = x.elements[1].value;
-                var threecolsimg2 = x.elements[2].value;
-                var threecolstxt2 = x.elements[3].value;
-                var threecolsimg3 = x.elements[4].value;
-                var threecolstxt3 = x.elements[5].value;
+                let threecolstextbox1 = nicEditors.findEditor('threecolleft');
+                var threecolstxt1 = threecolstextbox1.getContent();
+                var threecolsimg2 = x.elements[1].value;
+                let threecolstextbox2 = nicEditors.findEditor('threecolmid');
+                var threecolstxt2 = threecolstextbox2.getContent();
+                var threecolsimg3 = x.elements[2].value;
+                let threecolstextbox3 = nicEditors.findEditor('threecolright');
+                var threecolstxt3 = threecolstextbox3.getContent();
                 kk += threecolumnhtml1 + threecolsimg1 + threecolumnhtml2 + threecolstxt1 + threecolumnhtml3 + threecolsimg2 + threecolumnhtml4 + threecolstxt2 + threecolumnhtml5 + threecolsimg3 + threecolumnhtml6 + threecolstxt3 + threecolumnhtml7;
             }
             if (list1 === "leftimg"){
@@ -257,9 +263,10 @@ function makeItADoc(text, name, type){ // This one makes the HTML document! Also
                 var x = document.getElementById('leftimg');
                 var leftimgurl1 = x.elements[0].value;
                 var leftimgheadline = x.elements[1].value;
-                var leftimgtxt = x.elements[2].value;
-                var leftimgurl2 = x.elements[3].value;
-                var leftimglink = x.elements[4].value;
+                let leftimgtextbox = nicEditors.findEditor('leftimgtxt');
+                var leftimgtxt = leftimgtextbox.getContent();
+                var leftimgurl2 = x.elements[2].value;
+                var leftimglink = x.elements[3].value;
                 kk += leftimghtml1 + leftimgurl1 + leftimghtml2 + leftimgheadline + leftimghtml3 + leftimgtxt + leftimghtml4 + leftimgurl2 + leftimghtml5 + leftimglink + leftimghtml6;
             }
             if (list1 === "rightimg"){
@@ -273,9 +280,10 @@ function makeItADoc(text, name, type){ // This one makes the HTML document! Also
                 var x = document.getElementById('rightimg');
                 var rightimgurl1 = x.elements[0].value;
                 var rightimgheadline = x.elements[1].value;
-                var rightimgtxt = x.elements[2].value;
-                var rightimgurl2 = x.elements[3].value;
-                var rightimglink = x.elements[4].value;
+                let rightimgtextbox = nicEditors.findEditor('rightimgtxt');
+                var rightimgtxt = rightimgtextbox.getContent();
+                var rightimgurl2 = x.elements[2].value;
+                var rightimglink = x.elements[3].value;
                 kk += rightimghtml1 + rightimgurl1 + rightimghtml2 + rightimgheadline + rightimghtml3 + rightimgtxt + rightimghtml4 + rightimgurl2 + rightimghtml5 + rightimglink + rightimghtml6;
             }
             if (list1 === "bgimg"){
@@ -287,8 +295,9 @@ function makeItADoc(text, name, type){ // This one makes the HTML document! Also
                 var x = document.getElementById('bgimg');
                 var bgimgurl = x.elements[0].value;
                 bgimgurl.replace(/,/g, '.');
-                var bgimgtxt = x.elements[1].value;
-                kk += bgimghtml1 + bgimgurl + bgimghtml2 + /*bgimgurl +*/ bgimghtml3 + bgimgtxt + bgimghtml4;
+                let bgimgtextbox = nicEditors.findEditor('bgimgtxt');
+                var bgimgtxt = bgimgtextbox.getContent();
+                kk += bgimghtml1 + bgimgurl + bgimghtml2 + bgimgurl + bgimghtml3 + bgimgtxt + bgimghtml4;
             }
             if (list1 === "noimg"){
                 const noimghtml1 = '<!-- 1 Column Text + Button : BEGIN -->\r<tr>\r<td style="background-color: #ffffff;">\r<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">\r<tr>\r<td style="padding: 20px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555; text-align: center;">\r<h1 style="margin: 0 0 10px; font-size: 25px; line-height: 30px; color: #333333; font-weight: normal;">';
@@ -299,22 +308,29 @@ function makeItADoc(text, name, type){ // This one makes the HTML document! Also
 
                 var x = document.getElementById('noimg');
                 var noimgheadline = x.elements[0].value;
-                var noimgbodytext = x.elements[1].value;
-                var noimglink = x.elements[2].value;
+                let textbox = nicEditors.findEditor('noimgbody');
+                var noimgbodytext = textbox.getContent();
+                var noimglink = x.elements[1].value;
                 noimglink.replace(/,/g, '.');
-                var noimglinktext = x.elements[3].value;
+                var noimglinktext = x.elements[2].value;
                 kk += noimghtml1 + noimgheadline + noimghtml2 + noimgbodytext + noimghtml3 + noimglink + noimghtml4 + noimglinktext + noimghtml5;
             }
             if (list1 ==="closing"){
                 const closinghtml1 = '<!-- Clear Spacer : BEGIN -->\r<tr>\r<td aria-hidden="true" height="40" style="font-size: 0px; line-height: 0px;">\r&nbsp;\r</td>\r</tr>\r<!-- Clear Spacer : END -->\r<!-- 1 Column Text : BEGIN -->\r<tr>\r<td style="background-color: #ffffff;">\r<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">\r<tr>\r<td style="padding: 20px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;">\r<p style="margin: 0 0 10px 0;">';
                 const closinghtml2 = '</p>\r</td>\r</tr>\r</table>\r</td>\r</tr>\r<!-- 1 Column Text : END -->\r<!-- Clear Spacer : BEGIN -->\r<tr>\r<td aria-hidden="true" height="40" style="font-size: 0px; line-height: 0px;">\r&nbsp;\r</td>\r</tr>\r<!-- Clear Spacer : END -->\r</table>\r<!--[if mso]>\r</td>\r</tr>\r</table>\r<![endif]-->\r</div>\r<!-- Full Bleed Background Section : BEGIN -->\r<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #CB00FF;">\r<tr>\r<td valign="top">\r<div style="max-width: 680px; margin: 0 auto;" class="email-container">\r<!--[if mso]>\r<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="680" align="center">\r<tr>\r<td>\r<![endif]-->\r<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">\r<tr>\r<td style="padding: 0px; text-align: center;\rfont-family: sans-serif; font-size: 15px;\rline-height: 140%; color: #ffffff;">\r<p>\r';
-                const closinghtml3 = '</p>\r</td>\r</tr>\r<tr>\r<td style="padding: 20px; text-align: left; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #ffffff;">\r<img alt="Signature" style="width: 100%;\rmax-width: 600px; height: auto;\rbackground: #dddddd; font-family:\rsans-serif; font-size: 15px;\rline-height: 140%; color: #555555;\rmargin: auto;" class="g-img" moz-do-not-send="true" align="middle" height="" width="600" border="0" src="http://u.cubeupload.com/XBLOssia/NewSignatureThunderb.png">\r</td>\r</tr>\r</table>\r<!--[if mso]>\r</td>\r</tr>\r</table>\r<![endif]-->\r</div>\r</td>\r</tr>\r</table>\r<!-- Full Bleed Background Section : END -->\r<!--[if mso | IE]>\r</td>\r</tr>\r</table>\r<![endif]-->\r</center>\r</body>\r</html>\r';
+                const closinghtml3 = '</p>\r</td>\r</tr>\r<tr>\r<td style="padding: 20px; text-align: left; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #ffffff;">\r<img alt="Signature" style="width: 100%;\rmax-width: 600px; height: auto;\rbackground: #dddddd; font-family:\rsans-serif; font-size: 15px;\rline-height: 140%; color: #555555;\rmargin: auto;" class="g-img" moz-do-not-send="true" align="middle" height="" width="600" border="0" src="'
+
+                const closinghtml4 = '">\r</td>\r</tr>\r</table>\r<!--[if mso]>\r</td>\r</tr>\r</table>\r<![endif]-->\r</div>\r</td>\r</tr>\r</table>\r<!-- Full Bleed Background Section : END -->\r<!--[if mso | IE]>\r</td>\r</tr>\r</table>\r<![endif]-->\r</center>\r</body>\r</html>\r';
 
                 var x = document.getElementById('closing');
-                var closingtext1 = x.elements[0].value;
-                var closingtext2 = x.elements[1].value;
-                kk += closinghtml1 + closingtext1 + closinghtml2 + closingtext2 + closinghtml3;
+                var closingtextbox1 = nicEditors.findEditor('closing1');
+                var closingtext1 = closingtextbox1.getContent();
+                var closingtextbox2 = nicEditors.findEditor('closing2');
+                var closingtext2 = closingtextbox2.getContent();
+                var signatureurl = x.elements[0].value;
+                kk += closinghtml1 + closingtext1 + closinghtml2 + closingtext2 + closinghtml3 + signatureurl + closinghtml4;
             }
+
         }
         //var text = document.createTextNode(kk);
 
@@ -329,6 +345,9 @@ function makeItADoc(text, name, type){ // This one makes the HTML document! Also
             document.body.removeChild(a);
             window.URL.revokeObjectURL(url);
         }, 0);
-}
 
+}
+// If you want to replace the BG color, search and replace #f84d00
+// If you want to change the color of the bottom section, search and replace #CB00FF
+// I might add those things as customization options, but not for a while yet.
 

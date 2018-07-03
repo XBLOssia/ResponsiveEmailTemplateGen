@@ -5,17 +5,12 @@
 		<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 		<title >HTML 5, JavaScript  thingy </title>
 		<link rel="stylesheet" type="text/css" href="CSS/test.css">
-		<script type="text/javascript" src="Scripts/test.1.js"></script>
-		<script type="text/javascript" src="Scripts/nicEdit.js"></script>
-		<script type="text/javascript">
-//<![CDATA[
-bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
-//]]>
-		</script>
+		<script src="Scripts/test.1.js"></script>
+		<script src="Dev/vue.js"></script>
 	</head>
 <body>
-<h1>Version 1 of the HTML email generator</h1>
-<p>Refer to the readme if you need help using this.</p>
+<h1>Prototype like a billion for the drag and drop thing I want to make</h1>
+<p>Someday I might make this look better with different CSS later</p>
 <div id="grandparent">
 	<div class="parent">
 		<div class="topbox" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)" >
@@ -41,9 +36,8 @@ bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
 				<button onclick="findTags()">findTags</button> !-->
 				<button onclick="makeItHtml()">Update Boxes</button>
 				<br /><a href"" id="a">Download the HTML file.</a>
-				<br /><button onclick="makeItADoc('file text', 'output.txt', 'text/plain')">-:-Download-:-  </button>
+				<br /><button onclick="makeItADoc('file text', 'output.txt', 'text/plain');">-:-Download-:-  </button>
 				<br />The ASCII decorations let you know it's legit.
-				<br /><p style="color:black;">http://u.cubeupload.com/XBLOssia/NewSignatureThunderb.png</p>
 			</div>
 		</div>
 	</div>

@@ -17,7 +17,10 @@ html {
 div.parent {
     display:flex;
     flex-direction: row;
+    align-content: stretch;
+    align-items: stretch;
     text-align: center;
+    text-justify: auto;
     background-color: rgba(196, 196, 196, 0.75);
     max-height: 100%;
     max-width: 50%;
@@ -27,7 +30,8 @@ div.parent {
 div.cousins {
     display: flex;
     flex-direction: column;
-    
+    align-content: stretch;
+    align-items: stretch;
 }
 
 #textbox{
@@ -77,11 +81,20 @@ div.trash  {
     align-content: flex-start;
     align-items: flex-start;
     flex-basis: 50%;
+    align-self: stretch;
 }
 
 #replacerator{
+    background-color: lightgray;
+    color: black;
     display:flex;
     flex-direction: column;
     align-content: flex-start;
-    align-items: stretch;
+    align-items: flex-start;
+    overflow-y: auto;
+    max-height: 700px;
+}
+textarea{
+    background-color: white;
+    color: black;
 }
