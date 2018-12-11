@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns='http://www.w3.org/1999/xhtml'>
+	<head>
+		<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+		<title >HTML 5, JavaScript  thingy </title>
+		<link rel="stylesheet" type="text/css" href="CSS/test.css">
+		<script type="text/javascript" src="Scripts/test.2.js"></script>
+		<script type="text/javascript" src="Scripts/nicEdit.js"></script>
+		<script type="text/javascript">
+            //<![CDATA[
+            bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+            //]]>
+		</script>
+    </head>
+    <body>
+        <h1>Version 2 of this here HTML email generator</h1>
+        <p>New: copies of the same element! Amazing! (if it works)</p>
+        <div id="grandparent">
+            <div class="parent">
+                <div class="topbox" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)" >
+                    <img src="./Assets/Heading.png" align="center" width="200" height="85" draggable="true" ondragstart="startDrag(event)" ondrag="drag(event)"  class="heading" id="heading_1" ondragover="dragOver(event)" ondragleave="dragEnd(event)">
+                    <img src="./Assets/twocols.png" align="center" width="200" height="85" draggable="true" ondragstart="startDrag(event)" ondrag="drag(event)"  class="twocols" id="twocols_1" ondragover="dragOver(event)" ondragleave="dragEnd(event)">
+                    <img src="./Assets/threecols.png" align="center" width="200" height="85" draggable="true" ondragstart="startDrag(event)" ondrag="drag(event)"  class="threecols" id="threecols_1" ondragover="dragOver(event)" ondragleave="dragEnd(event)">
+                    <img src="./Assets/Leftimg.png" align="center" width="200" height="85" draggable="true" ondragstart="startDrag(event)" ondrag="drag(event)"  class="leftimg" id="leftimg_1" ondragover="dragOver(event)" ondragleave="dragEnd(event)">
+                    <img src="./Assets/Rightimg.png" align="center" width="200" height="85" draggable="true" ondragstart="startDrag(event)" ondrag="drag(event)"  class="rightimg" id="rightimg_1" ondragover="dragOver(event)" ondragleave="dragEnd(event)">
+                    <img src="./Assets/BGimg.png" align="center" width="200" height="85" draggable="true" ondragstart="startDrag(event)" ondrag="drag(event)"  class="bgimg" id="bgimg_1" ondragover="dragOver(event)" ondragleave="dragEnd(event)">
+                    <img src="./Assets/Noimg.png" align="center" width="200" height="85" draggable="true" ondragstart="startDrag(event)" ondrag="drag(event)"  class="noimg" id="noimg_1" ondragover="dragOver(event)" ondragleave="dragEnd(event)">
+                    <img src="./Assets/Closing.png" align="center" width="200" height="85" draggable="true" ondragstart="startDrag(event)" ondrag="drag(event)"  class="closing" id="closing_1" ondragover="dragOver(event)" ondragleave="dragEnd(event)">
+                </div>
+                <div class="cousins">
+                    <div class="dropbox" id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                    <div class="trash" id="trash" ondrop="trash(event)" ondragover="allowDrop(event)">Trash</div>
+                </div>
+            </div>
+            <div id="outputparent">
+                <div id="textbox">
+                    <div id="replacerator">Click the button below when your elements are in place.</div>
+                    <div id="buttonator">
+                        <!--<button onclick="replaceMe()">OwO</button>
+                        <button onclick="findTags()">findTags</button> !-->
+                        <button onclick="makeItHtml()">Update Boxes</button>
+                        <br /><a href"" id="a">Download the HTML file.</a>
+                        <br /><button onclick="makeItADoc('file text', 'output.txt', 'text/plain')">-:-Download-:-  </button>
+                        <br />The ASCII decorations let you know it's legit.
+                        <br /><p style="color:black;">https://gdurl.com/NlFf</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function noEnter(){
+            return !(window.event && window.event.keyCode == 13);
+            };
+        </script>
+
+    </body>
