@@ -244,6 +244,7 @@ function makeItADoc(text, name, type){ // This one makes the HTML document! Also
     n = (gettags.length);
     console.log(gettags);
         var kk = "";
+        var headerswitch = 0;
         //var countdown = 
         for (i=0; i <= (n-1); i++){
             var list = gettags[i].id; //!!!Here's your problem - this section right here should be exploded
@@ -258,13 +259,15 @@ function makeItADoc(text, name, type){ // This one makes the HTML document! Also
                 var x = document.getElementById('heading');
                 var bigimagelink = x.elements[0].value;
                 bigimagelink.replace(/,/g, '.');
-                //console.log(bigimagelink);
-                if (_counter = 0) {
+                console.log('i : ' + i);
+                if (headerswitch == 0) {
+                    console.log('headerswitch : '+headerswitch);
                     kk += header1 + header2 + bigimagelink + header3;
+                    headerswitch = 1;
+                } else {
+                    kk += header2 + bigimagelink + header3; 
                 }
-                else {
-                kk += header2 + bigimagelink + header3; 
-                }
+            console.log('headerswitch : '+headerswitch);
             }
             if (list1 === "twocols"){
                 const twocolumnhtml1 = '<!-- 2 Even Columns : BEGIN -->\r<tr>\r<td height="100%" valign="top" width="100%" style="background-color: #ffffff;">\r<!--[if mso]>\r<table role="presentation" border="0" cellspacing="0" cellpadding="0" width="660">\r<tr>\r<td valign="top" width="660">\r<![endif]-->\r<table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:660px;">\r<tr>\r<td align="center" valign="top" style="font-size:0; padding: 10px 0;">\r<!--[if mso]>\r<table role="presentation" border="0" cellspacing="0" cellpadding="0" width="660">\r<tr>\r<td valign="top" width="330">\r<![endif]-->\r<div style="display:inline-block; margin: 0 -2px; width:100%; min-width:200px; max-width:330px; vertical-align:top;" class="stack-column">\r<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">\r<tr>\r<td style="padding: 10px 10px;">\r<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px;text-align: left;">\r<tr>\r<td>\r<img src="';
