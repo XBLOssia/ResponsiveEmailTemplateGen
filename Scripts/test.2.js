@@ -263,7 +263,7 @@ function makeItADoc(text, name, type){ // This one makes the HTML document! Also
                     kk += header1 + header2 + bigimagelink + header3;
                 }
                 else {
-                kk += header1 + header2 + bigimagelink + header3; 
+                kk += header2 + bigimagelink + header3; 
                 }
             }
             if (list1 === "twocols"){
